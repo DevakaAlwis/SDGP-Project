@@ -2,10 +2,10 @@ import http.client
 import json
 import pymongo
 
-# # Connect to MongoDB
-# client = pymongo.MongoClient("mongodb://localhost:27017/")
-# db = client["proRev_analyer_db"]
-# collection = db["ebayProductDetailCollection"]
+# Connect to MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["proRev_analyer_db"]
+collection = db["ebayProductDetailCollection"]
 
 #rapid API
 conn = http.client.HTTPSConnection("countdown4.p.rapidapi.com")
@@ -55,15 +55,15 @@ for i in parsed_json:
 print(data)
 
 
-# # Extract only the data fields you want
-# desired_fields = ["epid", "ebay_domain", "currency", "price", "currency", "title", "review_rating", "review_count", "images", "seller_name"]
-# filtered_data = {field: data[field] for field in desired_fields if field in data}
+# Extract only the data fields you want
+desired_fields = ["epid", "ebay_domain", "currency", "price", "currency", "title", "review_rating", "review_count", "images", "seller_name"]
+filtered_data = {field: data[field] for field in desired_fields if field in data}
 
-# # Insert the filtered data into MongoDB
-# collection.insert_one(filtered_data)
+# Insert the filtered data into MongoDB
+collection.insert_one(filtered_data)
 
-# # Use the filtered data as needed
-# print(filtered_data)
+# Use the filtered data as needed
+print(filtered_data)
 
 
 
