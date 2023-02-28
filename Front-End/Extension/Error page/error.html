@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Popup Window Error</title>
+	<style>
+		.popup {
+			position: fixed;
+			top: 60%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: white;
+			border: 1px solid black;
+			padding: 20px;
+			box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+			z-index: 999;
+			text-align: center;
+		}
+		h1 {
+	        font-size: 36px;
+	        color: #333;
+	        margin-top: 50px;
+	        text-align: center;
+      	}
+    	p {
+	        font-size: 18px;
+	        color: #666;
+	        line-height: 1.5;
+	        margin: 25px 50px;
+	        text-align: center;
+        }
+	</style>
+
+</head>
+<body onload="openPopup()">
+
+	<h1>Oops! Something went wrong with the extension.</h1>
+    <p>We're sorry, but the extension you are trying to use is not functioning properly on this website.</p>
+    <!-- <p>Please try disabling the extension or using a different browser if the problem persists.</p> -->
+
+	<div id="popup" class="popup">
+		<h2>Error 404!</h2>
+		<img src="error.jpeg" alt="Error image">
+		<p>Click the "OK" button to close this window.</p>
+		<button onclick="closePopup()">OK</button>
+	</div>
+
+	<script>
+		function openPopup() {
+			document.getElementById("popup").style.display = "block";
+		}
+
+		function closePopup() {
+			document.getElementById("popup").style.display = "none";
+		}
+	</script>
+</body>
+</html>
