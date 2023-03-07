@@ -7,8 +7,9 @@ NEWSPIDER_MODULE = 'amazon.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-SCRAPEOPS_API_KEY = 'YOUR_API_KEY'
+#devaka Key: cb20c190-26f8-4c75-a805-8e81ed87e92f
 
+SCRAPEOPS_API_KEY = 'cb20c190-26f8-4c75-a805-8e81ed87e92f'
 SCRAPEOPS_PROXY_ENABLED = True
 
 # Add In The ScrapeOps Monitoring Extension
