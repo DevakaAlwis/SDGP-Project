@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #c4e8e2;
+}
+
+
+header {
+    position: relative;
+    height: 600px; 
+    overflow: hidden;
+  
+}
+.header-image {
+    position: absolute;
+    top: 100px; 
+    left: 30px; 
+    width: 350px; 
+    height: 500px; 
+    background-color: #ffffff;
+    backdrop-filter: blur(10px);
+    border-radius: 20px; 
+    padding: 10px; 
+    margin-left: 130px;
+}
+.header-box1 {
+    position: absolute;
+    top: 100px; 
+    left: 30px; 
+    width: 700px;
+    height: 500px;
+    background-color:  #ffffff;
+    backdrop-filter: blur(10px); 
+    border-radius: 20px; 
+    margin-left: 550px;
+}
+
+.header-box1 p{
+    padding: 10px;
+    font-size: 20px;
+    color: #ffffffd9;
+}
+.header-box1 h2{
+    padding: 10px;
+    color: #11999E;
+    font-weight: bold;
+    font-family: 'Montserrat', serif;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 10px 10px;
+}
+  
+main {
+    padding-top: 40px;
+}
+
+label.logo {
+    color: rgb(31, 30, 30);
+    font-size: 35px;
+    line-height: 80px;
+    padding:  20px;
+    font-weight: bold;
+}
+
+.fa-icon-container {
+    font-size: 30px;
+    color: rgb(30, 29, 29);
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+@media (max-width: 952px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 30px;
+    }
+}
+@media (max-width: 858px) {
+    .fa-icon-container{
+        display: block;
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.card {
+    width: 250px;
+    height: 580px;
+    border-radius: 15px;
+    margin: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 10px 20px rgba(41, 41, 41, 0.389);
+    border: solid 2px rgba(10, 10, 10, 0);
+    background-color: rgba(240, 248, 255, 0.13);
+
+}
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+  
+li {
+    margin-bottom: 5px;
+}
+
+.bullet-points li {
+    margin-bottom: 1.5rem; 
+    color: #365f6d;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+.card-image {
+    background-color: rgba(255, 255, 255, 0.11);
+    height: 150px;
+    margin-bottom: 25px;
+    background-size: cover;
+    border-radius: 15px 15px 15px 15px;
+
+}
+
+
+.site-1 {
+    background-image: url(/Users/livw/FrontEndSite/images/amazon-png-logo.png);
+}
+.site-2 {
+    background-image: url(/Users/livw/FrontEndSite/images/walmart.png);
+}
+.site-3 {
+    background-image: url(/Users/livw/FrontEndSite/images/ebay-logo.png);
+}
+
+
+.card {
+    padding: 20px;
+}
+.card a {
+    background-color: rgb(77, 79, 79);
+    color: rgb(255, 255, 255);
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    text-decoration: none;
+
+}
+.card:hover {
+    background-color: #0b1f4d;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition:all 1s ease;  
+    
+}
+.card:hover li {
+    color: #ffffff;
+  }
+
+.btn {
+    background: #11cdd4;
+    background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -moz-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -ms-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -o-linear-gradient(top, #11cdd4, #11999e);
+    background-image: linear-gradient(to bottom, #11cdd4, #11999e);
+    -webkit-border-radius: 7;
+    -moz-border-radius: 7;
+    border-radius: 7px;
+    font-family: 'Montserrat', serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background: #30e3cb;
+    background-image: -webkit-linear-gradient(top, #30e3cb, #2bc48d);
+    background-image: -moz-linear-gradient(top, #30e3cb, #2bc48d);
+    background-image: -ms-linear-gradient(top, #30e3cb, #2bc48d);
+    background-image: -o-linear-gradient(top, #30e3cb, #2bc48d);
+    background-image: linear-gradient(to bottom, #30e3cb, #2bc48d);
+    text-decoration: none;
+  }
+
+h3{
+    color: #11999E;
+    text-align: center;
+    padding-top: 50px;
+}
+
+h4{
+    color: #767981;
+    text-align: center;
+}
+
+footer{
+        height: 400px;
+        background-color:  #012b47;
+        backdrop-filter: blur(10px); 
+        border-radius: 10px 10px 10px 10px;
+        align-content: center;
+        margin: 10px;
+}
+
+.scoreDetails{
+    color: #ffffff;
+    margin-left: 100px;
+}
+
+.ecomlogo{
+    height: 100px;
+    width: 100px;
+}
