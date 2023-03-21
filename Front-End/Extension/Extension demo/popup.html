@@ -6,41 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href=""> 
     <link rel="stylesheet" href="popup.css">
-    <title>ProRev Analyzer</title>
-    
+    <title>ProRev Analyzer</title> 
+  </head>
 
-</head>
+  <body>
 
-<body>
+    <div id="product-details-container">
+      <div id="tital" class="tital">
+            <img class="image1" src="images/logo.png" alt="logo image" />
+            <h1>ProRev Analyzer</h1>
+            <br />
+        </div> 
+        <br/>
 
-    <div>
-        <div id="tital" class="tital">
-            <img class="image1" src="logo.png" alt="logo image">
-            <h1>ProRev Analyzer</h1><br>
-        
-          </div>  
+        <div id="mid">
+            <!--<div style="background-color: white; height: 100px; width: 100px"> -->
+            <img
+              id="product-image"
+              src=""
+              alt="image"
+              style="height: 100px; width: 100px; object-fit: contain"
+            />
+            <!-- </div> -->
 
-          <br>
+          <div>
+            <br />
+            <p>Product ID:<span id="product-id"></span></p>
+            <p>Product Name:<span id="product-name"></span></p>
+            <br />
+            <p>Product Price:<span id="product-price"></span></p>
+            <!-- <p>Product Seller:<span id="product-seller"></span></p> -->
+            <p>Product Site Name:<span id="product-site"></span></p>
+            <p>Product Rating:<span id="product-rating"></span></p>
+            <p>Product Review Count:<span id="product-numberOfReviews"></span></p>
+            <p>Product URL:<span id="product-url"></span></p>
+          </div>
 
-<div id="mid">
-        <span>
-          <img class="image2" src="iphone14.jpg" alt="iphone 14 image"> <br> <br> <br>
-          <span id="product-name">Apple iphone 14, 128GB, Blue - Unlocked (Renewed)</span>
-          <span id="prorev-analyzer-rating">4.2</span>
-        </span>
-        <h4 id="product-price">Price: $789.00</h4>
-        <div id="product-sell">Site: Amazon.com</div>
-        <div>
-          <p id="product-review-rating">Rating: 3.9</p>
-          <p id="product-number-of-reviews">Reviews: 79 ratings</p>
-          <p id="product-Score">Score: 67.1%</p>
+          <br />
+          <div class="cbutton">
+            <button id="page-button">View Similar Products</button>
+          </div>
+
         </div>
-        <br />
-        <div class="cbutton"><button>View Similar Products</button></div>
+        <br>
+      </div>
     </div>
-</div>
-  
-      <script src="popup.js"></script>
-    </body>
-  </html>
-  
+
+    <script src="popup.js"></script>
+  </body>
+</html>
