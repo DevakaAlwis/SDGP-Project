@@ -1,4 +1,11 @@
 body {
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;  
     background-color: lightblue;
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -8,4 +15,10 @@ body {
     color: navy;
     margin-top: 50px;
     text-align: center;
+  }
+
+  #product-name{
+    color: black ;
+    margin-top: 50px;
+    font-weight: bold;
   }
