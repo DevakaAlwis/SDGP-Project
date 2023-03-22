@@ -26,7 +26,7 @@
 
       .tital
       {
-            padding: 5px;
+        padding: 5px;
         background-color: white;
         border-radius: 10px;
       }
@@ -41,13 +41,18 @@
         font-weight: bold;
         color: #1a1a1a;
       }
+
       /* Style for the product image */
       #product-details-container #product-image {
         width: 100px;
         height: 100px;
         object-fit: contain;
         float: left;
+        margin: auto;
         margin-right: 20px;
+        margin-bottom: 14px;
+        margin-top: 14px;
+
       }
       
       button {
@@ -85,4 +90,18 @@
 
     .cbutton{
       text-align: center;    
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: rgb(54, 98, 208);
+      text-decoration: underline;
+    }
+
+    #proname-css{
+      text-align: left;
     }
