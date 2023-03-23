@@ -37,3 +37,5 @@ chrome.storage.local.get(
     }
   );
   
+  // Enter the code in a web page or extension with access to the chrome.
+  // storage API, click it to execute the function and send a POST request to the server.

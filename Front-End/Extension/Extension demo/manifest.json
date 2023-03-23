@@ -17,7 +17,8 @@
 
   "content_scripts": [
     {
-      "matches": ["https://*.amazon.com/*" , "https://*.ebay.com/*"],
+      "matches": ["https://*.amazon.com/*",
+                   "https://*.walmart.com/*"],
       "js": ["scripts/content.js"]
     }
   ],
