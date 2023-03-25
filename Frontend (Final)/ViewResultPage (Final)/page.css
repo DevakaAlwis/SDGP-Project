@@ -4,10 +4,10 @@
     margin: 0;
 }
 
-body {
-    background-color: #f4f6f8;
-}
 
+body {
+  background-size: cover;
+}
 
 header {
     position: relative;
@@ -17,13 +17,13 @@ header {
 
 .topnav {
     overflow: hidden;
-    background-color:#012b47;
+    background-color:#c1c8cc79;
   }
   
   .topnav a {
     float: left;
     display: block;
-    color: rgb(252, 251, 251);
+    color: #fcfbfb;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -125,13 +125,13 @@ label.logo {
 }
 .card {
     width: 250px;
-    height: 580px;
+    height: 550px;
     border-radius: 15px;
     margin: 10px;
     backdrop-filter: blur(20px);
     box-shadow: 10px 10px 20px rgba(41, 41, 41, 0.389);
     border: solid 2px rgba(10, 10, 10, 0);
-    background-color: rgba(240, 248, 255, 0.13);
+    background:#899EA3;
 
 }
 ul {
@@ -145,14 +145,14 @@ li {
 
 .bullet-points li {
     margin-bottom: 1.5rem; 
-    color: #365f6d;
+    color:#050200;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
 }
 
 .card-image {
-    background-color: rgba(167, 170, 216, 0.11);
-    height: 100px;
+    background-color:#a4b3ae4d;
+    height: 90px;
     margin-bottom: 25px;
     background-size: cover;
     border-radius: 15px 15px 15px 15px;
@@ -188,12 +188,12 @@ li {
     text-align: center;
     margin: 20px 50px;
     border-radius: 10px;
-    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     text-decoration: none;
 
 }
 .card:hover {
-    background-color: #0b1f4d;
+    background-color: #0F4561;
     cursor: pointer;
     transform: scale(1.03);
     transition:all 1s ease;  
@@ -222,11 +222,11 @@ li {
   
   .btn:hover {
     background: #30e3cb;
-    background-image: -webkit-linear-gradient(top, #30e3cb, #2bc48d);
-    background-image: -moz-linear-gradient(top, #30e3cb, #2bc48d);
-    background-image: -ms-linear-gradient(top, #30e3cb, #2bc48d);
-    background-image: -o-linear-gradient(top, #30e3cb, #2bc48d);
-    background-image: linear-gradient(to bottom, #30e3cb, #2bc48d);
+    background-image: -webkit-linear-gradient(top, #a2e0d8, #3B5E71);
+    background-image: -moz-linear-gradient(top, #a2e0d8, #3B5E71);
+    background-image: -ms-linear-gradient(top, #a2e0d8, #3B5E71);
+    background-image: -o-linear-gradient(top, #a2e0d8, #3B5E71);
+    background-image: linear-gradient(to bottom, #a2e0d8, #3B5E71);
     text-decoration: none;
   }
 
@@ -234,20 +234,12 @@ h3{
     color: #0b1f4d;
     text-align: center;
     padding-top: 50px;
+    font-family: BD-Light,sans-serif;
 }
 
 h4{
     color: #767981;
     text-align: center;
-}
-
-footer{
-        height: 300px;
-        background-color:  #012b47;
-        backdrop-filter: blur(10px); 
-        border-radius: 10px 10px 10px 10px;
-        align-content: center;
-        margin: 10px;
 }
 
 .scoreDetails{
@@ -258,4 +250,18 @@ footer{
 .ecomlogo{
     height: 100px;
     width: 100px;
+}
+
+.bottom-container{
+  background-color: #c1c8cc79;
+  height: 100px;
+  text-align: center;
+}
+
+.coppywrite{
+  color: #ccc;
+}
+
+.footer-link{
+  color: #31576C;
 }
