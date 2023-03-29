@@ -53,6 +53,17 @@ class WalmartSpider(scrapy.Spider):
                 # }
                 yield item
 
+            #paginate Through review pages
+            if(page == 0):
+                review_pages_blob = json_blob["props"]["pageProps"]["initialData"]["data"]["reviews"]
+                review_count = review_pages_blob["pagination"]["total"]
+                if(review_count >200):
+                    review_count = 100
+
+                for page in range(1,(review_count//20)):
+                    next_url= f'https://www.walmart.com/reviews/product/{id}?page={page}'
+                    yield scrapy.Request(url=next_url, callback=self.parse_review_pages, dont_filter=False, meta={'id': id, 'page': page})
+                
 # References
 # https://scrapy.org/
 # https://scrapeops.io/
