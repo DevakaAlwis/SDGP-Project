@@ -58,3 +58,8 @@ class AmazonReviewsSpider(scrapy.Spider):
             item["reviewRating"] = review_element.css(
                 "*[data-hook*=review-star-rating] ::text").re(r"(\d+\.*\d*) out")[0]
             yield item
+
+# References
+# https://scrapy.org/
+# https://scrapeops.io/
+# https://www.youtube.com/watch?v=wRHLX7xX2Xw

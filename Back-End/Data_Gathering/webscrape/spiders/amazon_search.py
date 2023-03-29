@@ -60,3 +60,8 @@ class AmazonSearchSpider(scrapy.Spider):
                 count += 1
             else:
                 break
+
+# References
+# https://scrapy.org/
+# https://scrapeops.io/
+# https://www.youtube.com/watch?v=rkb9LVb4hlU&t=439s
