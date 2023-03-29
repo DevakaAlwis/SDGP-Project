@@ -20,9 +20,7 @@ chrome.storage.local.get(
       // const productSellerNameEl = document.getElementById("product-seller");
       const productSiteNameEl = document.getElementById("product-site");
       const productRatingEl = document.getElementById("product-rating");
-      const productReviewCountEl = document.getElementById(
-        "product-numberOfReviews"
-      );
+      const productReviewCountEl = document.getElementById("product-numberOfReviews");
       const productURLEl = document.getElementById("product-url");
   
       imageURL = result.productImage;
@@ -34,7 +32,10 @@ chrome.storage.local.get(
       productSiteNameEl.innerText = result.productSiteName;
       productRatingEl.innerText = result.productRating;
       productReviewCountEl.innerText = result.productReviewCount;
-      productURLEl.innerText = result.productURL;
+      productURLEl.href = result.productURL;
+      productURLEl.textContent = result.productURL;
     }
   );
   
+  // Enter the code in a web page or extension with access to the chrome.
+  // storage API, click it to execute the function and send a POST request to the server.
