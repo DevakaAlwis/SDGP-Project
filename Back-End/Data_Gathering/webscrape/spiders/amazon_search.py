@@ -1,7 +1,6 @@
 import scrapy
+import pymongo
 from webscrape.items import AmazonProductItem
-from scrapy.crawler import CrawlerProcess
-from scrapy.utils.project import get_project_settings
 from urllib.parse import urljoin
 
 
@@ -9,9 +8,22 @@ class AmazonSearchSpider(scrapy.Spider):
     name = "amazon_search"
 
     def start_requests(self):
+        client = pymongo.MongoClient(
+            'mongodb+srv://devakaAdmin:dSTHFzXdNc4aHXV@cluster0.0c2sc0t.mongodb.net/?retryWrites=true&w=majority')
+        db = client["db"]
+        # delete previous collection
+        products_collection = db["amazonProducts"]
+        products_collection.drop()
+
+        # select the searchProduct from collection
+        search_collection = db["searchProducts"]
+
+        searchProducts = search_collection.find()
+        productNameList = [item["productName"] for item in searchProducts]
+
         # keywords = getattr(self, 'keywords')
-        keywords = ['Iphone 13']
-        for keyword in keywords:
+        # keywords = ['Black Soft Faux Vegan PU {Peta Approved Vegan} Leather by The Yard Synthetic Pleather 0.9 mm Nappa Yards (72 inch Wide x 52 inch) Soft Smooth Upholstery (Black Pebble, 2 Yards (72"x54"))']
+        for keyword in productNameList:
             amazon_search_url = f'https://www.amazon.com/s?k={keyword}&page=1'
             yield scrapy.Request(url=amazon_search_url, callback=self.parse)
 
@@ -30,7 +42,6 @@ class AmazonSearchSpider(scrapy.Spider):
                     '/')[3] if len(relative_url.split('/')) >= 4 else None
                 product_url = urljoin(
                     'https://www.amazon.com/', relative_url).split("?")[0]
-
                 item["productId"] = asin
                 item["productName"] = product.css("h2>a>span::text").get()
                 item["productPrice"] = product.css(
@@ -40,7 +51,7 @@ class AmazonSearchSpider(scrapy.Spider):
                 rating = (product.css(
                     "span[aria-label~=stars]::attr(aria-label)").re(r"(\d+\.*\d*) out") or [None])[0]
                 item["productRating"] = rating
-                item["productReviewCount"]: product.css(
+                item["productReviewCount"] = product.css(
                     "span[aria-label~=stars] + span::attr(aria-label)").get()
                 item["productImage"] = product.xpath(
                     "//img[has-class('s-image')]/@src").get()
