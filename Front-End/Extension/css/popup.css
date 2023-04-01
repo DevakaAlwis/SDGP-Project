@@ -49,8 +49,9 @@ h1 {
   padding: 10px;
   border-radius: 10px;
 }
+
 #other-container {
-  background-color: rgba(255, 255, 255, 0.392);
+  background-color: rgba(255 255 255 39.2%);
   display: none;
   width: 420px;
   height: 400px;
@@ -61,7 +62,7 @@ h1 {
 
 #heading {
   font-size: 30px;
-  color: rgb(79, 87, 102);
+  color: rgb(79 87 102);
 }
 
 #other-container p {
@@ -85,15 +86,15 @@ h1 {
 }
 
 #product-name {
-  font-family: "Merriweather", serif;
+  font-family: Merriweather, serif;
 }
 
 p {
-  font-size: 14px;
+  /* font-size: 14px; */
   color: #555;
   margin: 5px 0;
   padding: 3px;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: light;
 }
 
@@ -122,7 +123,7 @@ button {
   );
   border: none;
   border-radius: 15px;
-  box-shadow: 0 3px rgb(186, 186, 186);
+  box-shadow: 0 3px rgb(186 186 186);
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -136,7 +137,7 @@ a {
 }
 
 a:hover {
-  color: rgb(54, 98, 208);
+  color: rgb(54 98 208);
   text-decoration: underline;
 }
 
@@ -170,7 +171,7 @@ a:hover {
 @keyframes ring {
   0% {
     transform: rotate(0deg);
-    box-shadow: 1px 5px 2px #000000;
+    box-shadow: 1px 5px 2px #000;
   }
 
   50% {
@@ -178,7 +179,7 @@ a:hover {
     box-shadow: 1px 5px 2px #136b67;
   }
 
-  0% {
+  100% {
     transform: rotate(350deg);
     box-shadow: 1px 5px 2px #042b42;
   }
@@ -192,7 +193,7 @@ a:hover {
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgb(255, 255, 255, 0.3);
+  box-shadow: 0 0 5px rgb(255 255 255 30%);
 }
 
 #load {
