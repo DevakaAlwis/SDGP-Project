@@ -2,22 +2,22 @@ import scrapy
 import pymongo
 from webscrape.items import AmazonProductItem
 from urllib.parse import urljoin
+from webscrape.settings import MONGO_DATABASE,MONGO_URI
 
-
+#class for amazon search spider to scrape the amazon products 
 class AmazonSearchSpider(scrapy.Spider):
-    name = "amazon_search"
+    name = "amazon_search"  #name of the spider
 
+    #starting function of the amazonSearchSpider
     def start_requests(self):
-        client = pymongo.MongoClient(
-            'mongodb+srv://devakaAdmin:dSTHFzXdNc4aHXV@cluster0.0c2sc0t.mongodb.net/?retryWrites=true&w=majority')
-        db = client["db"]
+        client = pymongo.MongoClient(MONGO_URI)
+        db = client[MONGO_DATABASE]
         # delete previous collection
         products_collection = db["amazonProducts"]
         products_collection.drop()
 
         # select the searchProduct from collection
         search_collection = db["searchProducts"]
-
         searchProducts = search_collection.find()
         productNameList = [item["productName"] for item in searchProducts]
 
@@ -27,6 +27,7 @@ class AmazonSearchSpider(scrapy.Spider):
             amazon_search_url = f'https://www.amazon.com/s?k={keyword}&page=1'
             yield scrapy.Request(url=amazon_search_url, callback=self.parse)
 
+    #function to get product details
     def parse(self, response):
 
         # Extract Overview Product Data
@@ -35,6 +36,7 @@ class AmazonSearchSpider(scrapy.Spider):
         count = 0
         item = AmazonProductItem()
         for product in search_products:
+            #get only 2 products
             if (count < 2):
 
                 relative_url = product.css("h2>a::attr(href)").get()
