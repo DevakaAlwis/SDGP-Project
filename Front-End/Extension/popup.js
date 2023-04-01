@@ -1,4 +1,4 @@
-//check for current page is amazon product page or walmart product page to display the relevent div tags
+// check for current page is amazon product page or walmart product page to display the relevent div tags
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const currentTab = tabs[0];
   if (
@@ -25,7 +25,7 @@ chrome.storage.local.get(
     "productURL",
   ],
   function (result) {
-    //get the elements from the popup.html
+    // get the elements from the popup.html
     const productImageEl = document.getElementById("product-image");
     const productNameEl = document.getElementById("product-name");
     const productIdEl = document.getElementById("product-id");
@@ -37,7 +37,7 @@ chrome.storage.local.get(
     );
     const productURLEl = document.getElementById("product-url");
 
-    //put the data in the relavent positions
+    // put the data in the relavent positions
     imageURL = result.productImage;
     productImageEl.src = imageURL;
     productNameEl.innerText = result.productName;
@@ -47,11 +47,11 @@ chrome.storage.local.get(
     productRatingEl.innerText = result.productRating;
     productReviewCountEl.innerText = result.productReviewCount;
     productURLEl.innerText = "Product Link";
-    productURLEl.href = result.productURL; //href link
+    productURLEl.href = result.productURL; // href link
   }
 );
 
-//onclick action for button
+// onclick action for button
 document.getElementById("page-button").addEventListener("click", function () {
   document.getElementById("loading-container").style.display = "block";
   document.getElementById("main-container").style.display = "none";
@@ -64,12 +64,12 @@ document.getElementById("page-button").addEventListener("click", function () {
       name: productName,
     };
 
-    const jsonObject = JSON.stringify(object); //convert the object tp string
+    const jsonObject = JSON.stringify(object); // convert the object tp string
 
-    //send the data to back-end
+    // send the data to back-end
     fetch("http://localhost:5000/findProducts", {
       method: "POST",
-      credentials: "omit", //any cookies on the page access
+      credentials: "omit", // any cookies on the page access
       headers: {
         "Content-Type": "application/json",
       },
@@ -87,7 +87,7 @@ document.getElementById("page-button").addEventListener("click", function () {
           console.log(`Response status: ${response.status}`);
         }
       })
-      //if any error occur print it
+      // if any error occur print it
       .catch(function (error) {
         console.log(error);
       });

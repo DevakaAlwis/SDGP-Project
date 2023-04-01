@@ -9,7 +9,7 @@ from pymongo.errors import ConnectionFailure
 
 def databaseConnection():
     load_dotenv()
-    MONGO_URI = os.getenv('MONGO_URI')
+    MONGO_URI = os.getenv("MONGO_URI")
 
     try:
         # Database connection
@@ -24,7 +24,15 @@ def databaseConnection():
         amazon_product_collection = db["amazonProducts"]
         walmart_reviews_collection = db["walmartReviews"]
         walmart_product_collection = db["walmartProducts"]
-        return (search_collection, reviews_collection, products_collection, amazon_reviews_collection, amazon_product_collection, walmart_reviews_collection, walmart_product_collection)
+        return (
+            search_collection, 
+            reviews_collection, 
+            products_collection, 
+            amazon_reviews_collection, 
+            amazon_product_collection, 
+            walmart_reviews_collection, 
+            walmart_product_collection
+            )
     except ConnectionFailure as e:
         # print(f'MongoDB connection error. {e}'); #if failed to connect to mongoDB
         return ("", "", "", "", "", "", "")
