@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Poppins:wght@300;400&display=swap");
+
 body {
   background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
   width: 460px;
@@ -22,7 +23,7 @@ body {
   width: 70px;
 }
 
-#titleImage {
+#title-image {
   float: left;
   width: 70px;
   height: 70px;
@@ -35,7 +36,9 @@ body {
 h1 {
   text-align: center;
   font-size: 30px;
+
   color: #4f5766;
+
   margin: auto;
   font-family: Merriweather, serif;
 }
