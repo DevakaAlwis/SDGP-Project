@@ -1,5 +1,5 @@
 import pymongo
-from pymongo.errors import CollectionInvalid, WriteError, OperationFailure
+from pymongo.errors import CollectionInvalid, OperationFailure, WriteError
 
 #function to merge products with amazon and walmart collections
 def mergingProducts(products_collection,amazon_product_collection,walmart_product_collection):

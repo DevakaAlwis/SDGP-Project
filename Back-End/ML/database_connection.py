@@ -1,7 +1,8 @@
-import pymongo
-from pymongo.errors import ConnectionFailure
 import os
+
+import pymongo
 from dotenv import load_dotenv
+from pymongo.errors import ConnectionFailure
 
 # function to connect with the database
 

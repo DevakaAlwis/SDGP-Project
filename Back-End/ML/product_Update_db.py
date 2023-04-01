@@ -1,5 +1,5 @@
 import pymongo
-from pymongo.errors import CollectionInvalid, WriteError, OperationFailure
+from pymongo.errors import CollectionInvalid, OperationFailure, WriteError
 
 # function to update the sentiment sentiment label to number of positive, negetive, neutral reviews, number of reviews found, and it's rating to products collection
 

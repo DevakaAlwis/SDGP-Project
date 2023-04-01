@@ -1,5 +1,4 @@
 import joblib
-import pymongo
 from pymongo.errors import WriteError
 
 # function to run the setiment label model to reviews and update the reviews collection with the sentiment label
@@ -22,11 +21,11 @@ def runSentimentLabelModel(reviews_collection):
         loaded_vectorizer = joblib.load('sentimentVectorizer.pk1')
         statement = 'Sentiment label model loaded successfully.'
         load = True
-    except FileNotFoundError as f:
+    except FileNotFoundError:
         statement = 'Unable to load model.'
         load = False
 
-    if (load == True):
+    if (load):
         # run the model to each iteration
         for review in reviews:
             # get the product id
@@ -38,7 +37,7 @@ def runSentimentLabelModel(reviews_collection):
                     [review['reviewText']]).toarray()
                 sentiment_prediction = loaded_svm_model.predict(transformed_text)[
                     0]
-            except Exception as e:
+            except Exception:
                 # if model fails to label the review
                 error += 1
                 statement = 'Error labeling the model. With', str(
@@ -52,7 +51,7 @@ def runSentimentLabelModel(reviews_collection):
                     {"_id": item_id}, {'$set': {'sentimentLabel': sentiment_prediction}})
                 statement = 'Sentiment Label added to the reviews sucessfully.', str(
                     error), ' errors.'
-            except WriteError as e:
+            except WriteError:
                 statement = ' An error ocured while updating the database', str(
                     error), ' errors.'
                 error += 1

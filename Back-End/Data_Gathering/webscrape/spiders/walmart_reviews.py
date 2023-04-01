@@ -1,8 +1,9 @@
 import json
+import pymongo
 import scrapy
 from webscrape.items import WalmartReviewItem
-import pymongo
 from webscrape.settings import MONGO_DATABASE,MONGO_URI
+
 
 #class for walmart Review spider to scrape the amazon reviews
 class WalmartSpider(scrapy.Spider):

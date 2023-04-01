@@ -1,8 +1,10 @@
-import scrapy
-import pymongo
-from webscrape.items import AmazonReviewItem
 from urllib.parse import urljoin
+
+import pymongo
+import scrapy
+from webscrape.items import AmazonReviewItem
 from webscrape.settings import MONGO_DATABASE,MONGO_URI
+
 
 #class for amazon Review spider to scrape the amazon reviews 
 class AmazonReviewsSpider(scrapy.Spider):

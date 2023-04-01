@@ -1,16 +1,17 @@
 import json
+import pymongo
 import scrapy
 from urllib.parse import urlencode, urljoin
 from webscrape.items import WalmartProductItem
-import pymongo
 from webscrape.settings import MONGO_DATABASE,MONGO_URI
 
-#class for amazon search spider to scrape the amazon products
+
+# class for amazon search spider to scrape the amazon products
 class WalmartSpider(scrapy.Spider):
 
     name = "walmart_search" #name of the spider
 
-    #starting function of the walmartnSearchSpider
+    # starting function of the walmartnSearchSpider
     def start_requests(self):
         # keyword_list = ['iphone 13']
 
@@ -64,8 +65,8 @@ class WalmartSpider(scrapy.Spider):
                         #     'productImage' :   product['imageInfo'].get('thumbnailUrl'),
                         # }
                         yield item
-                    except:  # AttributeError
-                        raise ("Error in product inserting")
+                    except AttributeError as e:  # AttributeError
+                        raise (e)
                 else:
                     break
                 count += 1
