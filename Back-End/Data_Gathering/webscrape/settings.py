@@ -9,7 +9,9 @@ NEWSPIDER_MODULE = 'webscrape.spiders'
 ROBOTSTXT_OBEY = False
 
 
-SCRAPEOPS_API_KEY = 'cb20c190-26f8-4c75-a805-8e81ed87e92f'
+#SCRAPEOPS_API_KEY = 'cb20c190-26f8-4c75-a805-8e81ed87e92f'     #devaka key
+SCRAPEOPS_API_KEY = '617e74a2-96f9-4eba-ac12-59552235e249'      #bimsara key
+
 
 SCRAPEOPS_PROXY_ENABLED = True
 
@@ -33,9 +35,9 @@ DOWNLOADER_MIDDLEWARES = {
 CONCURRENT_REQUESTS = 1
 
 ITEM_PIPELINES = {
-    'webscrape.pipelines.AmazonMongoDBPipeline': 300,
+    'webscrape.pipelines.MongoDBPipeline': 300,
 }
 
-
+# MongoDB connection
 MONGO_URI = 'mongodb+srv://liviniAdmin:dSTHFzXdNc4aHXV@cluster0.0c2sc0t.mongodb.net/?retryWrites=true&w=majority'
 MONGO_DATABASE = 'db'
