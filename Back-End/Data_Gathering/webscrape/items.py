@@ -16,13 +16,36 @@ class AmazonProductItem(scrapy.Item):
     productSiteName = scrapy.Field()
     productPrice = scrapy.Field()
     productRating = scrapy.Field()
+    productImage = scrapy.Field()
+    productReviewCount = scrapy.Field()
+
+    pass
+
+
+class AmazonReviewItem(scrapy.Item):
+
+    productId = scrapy.Field()
+    reviewText = scrapy.Field()
+    reviewRating = scrapy.Field()
+
+    pass
+
+
+class WalmartProductItem(scrapy.Item):
+
+    productId = scrapy.Field()
+    productURL = scrapy.Field()
+    productName = scrapy.Field()
+    productSiteName = scrapy.Field()
+    productPrice = scrapy.Field()
+    productRating = scrapy.Field()
     productReviewCount = scrapy.Field()
     productImage = scrapy.Field()
 
     pass
 
 
-class AmazonReviewItem(scrapy.Item):
+class WalmartReviewItem(scrapy.Item):
 
     productId = scrapy.Field()
     reviewText = scrapy.Field()
