@@ -23,7 +23,7 @@ body {
   width: 70px;
 }
 
-#titleImage {
+#title-image {
   float: left;
   width: 70px;
   height: 70px;
@@ -38,7 +38,7 @@ h1 {
   font-size: 30px;
   color: rgb(79 87 102);
   margin: auto;
-  font-family: "Merriweather", serif;
+  font-family: Merriweather, serif;
 }
 
 #main-container {
