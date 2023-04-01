@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3.1,
+  "manifest_version": 3,
   "name": "ProRev Analyzer",
   "description": "Product details and comparison Extension.",
   "version": "1.0",
