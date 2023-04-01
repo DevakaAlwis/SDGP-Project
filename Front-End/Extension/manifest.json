@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "ProRev Analyzer my copy",
-  "description": "Product details and comparison tool",
+  "name": "ProRev Analyzer",
+  "description": "Product details and comparison Extension.",
   "version": "1.0",
-  "permissions": ["storage","tabs"],
+  "host_permissions": ["http://localhost/*"],
+  "permissions": ["storage", "tabs"],
   "icons": {
     "16": "/images/logo-16.png",
     "32": "/images/logo-32.png",
@@ -17,8 +18,7 @@
 
   "content_scripts": [
     {
-      "matches": ["https://*.amazon.com/*",
-                   "https://*.walmart.com/*"],
+      "matches": ["https://*.amazon.com/*", "https://*.walmart.com/*"],
       "js": ["scripts/content.js"]
     }
   ],
