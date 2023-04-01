@@ -35,7 +35,7 @@ body {
 h1 {
   text-align: center;
   font-size: 30px;
-  color: rgb(79, 87, 102);
+  color: #4f5766;
   margin: auto;
   font-family: Merriweather, serif;
 }
@@ -50,7 +50,7 @@ h1 {
 }
 
 #other-container {
-  background-color: rgba(255 255 255 39.2%);
+  background-color: #ffffffbd;
   display: none;
   width: 420px;
   height: 400px;
@@ -61,7 +61,7 @@ h1 {
 
 #heading {
   font-size: 30px;
-  color: rgb(79 87 102);
+  color: #4f5766;
 }
 
 #other-container p {
@@ -136,7 +136,7 @@ a {
 }
 
 a:hover {
-  color: rgb(54 98 208);
+  color: #3662d0;
   text-decoration: underline;
 }
 
@@ -192,7 +192,7 @@ a:hover {
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgb(255 255 255 30%);
+  box-shadow: 0 0 5px #ffffff46;
 }
 
 #load {

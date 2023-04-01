@@ -1,5 +1,5 @@
-let currentUrl = "";
-let isAllowedSite = false;
+// let currentUrl = "";
+// let isAllowedSite = false;
 
 // Listen for messages from content scripts
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
