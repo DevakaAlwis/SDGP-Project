@@ -80,6 +80,7 @@ h1 {
 
 #product-name-container {
   height: 100px;
+  text-align: left;
 }
 
 #product-name {
@@ -97,10 +98,6 @@ p {
 
 p span {
   font-weight: bold;
-}
-
-#proname-css {
-  text-align: left;
 }
 
 button {

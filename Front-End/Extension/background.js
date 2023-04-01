@@ -10,7 +10,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
       productId: message.productId,
       productImage: message.productImage,
       productPrice: message.productPrice,
-      // productSellerName: message.productSellerName,
       productSiteName: message.productSiteName,
       productRating: message.productRating,
       productReviewCount: message.productReviewCount,
@@ -19,5 +18,9 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
     // Show the extension popup
     chrome.action.setPopup({ popup: "popup.html" });
+  } else if (message.type === "Allowed") {
+    // Show the extension popup
+    currentUrl = message.url;
+    isAllowedSite = message.isAllowed;
   }
 });
