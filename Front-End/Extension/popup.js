@@ -46,12 +46,16 @@ chrome.storage.local.get(
     productSiteNameEl.innerText = result.productSiteName;
     productRatingEl.innerText = result.productRating;
     productReviewCountEl.innerText = result.productReviewCount;
-    productURLEl.innerText = result.productURL;
+    productURLEl.innerText = "Product Link";
+    productURLEl.href = result.productURL; //href link
   }
 );
 
 //onclick action for button
 document.getElementById("page-button").addEventListener("click", function () {
+  document.getElementById("loading-container").style.display = "block";
+  document.getElementById("main-container").style.display = "none";
+  document.getElementById("other-container").style.display = "none";
   chrome.storage.local.get(["productName", "productId"], function (result) {
     const productId = result.productId;
     const productName = result.productName;
@@ -75,9 +79,12 @@ document.getElementById("page-button").addEventListener("click", function () {
       // get the response from the back-end
       .then(function (response) {
         if (response.status == 200) {
-          console.log(`Response status was not 200: ${response.status}`);
+          console.log(
+            `Data sent successfully | Response status: ${response.status}`
+          );
+          window.open("http://127.0.0.1:5000/page", "_blank");
         } else {
-          console.log("Data sent successfully");
+          console.log(`Response status: ${response.status}`);
         }
       })
       //if any error occur print it

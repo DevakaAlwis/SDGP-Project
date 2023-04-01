@@ -3,16 +3,16 @@ body {
   background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
   width: 460px;
   height: 540px;
-  padding: 10px;
 }
 
 #product-details-container {
-  width: 440px;
-  height: 400px;
+  padding: 10px;
+  width: 460px;
+  height: 520px;
 }
 
 #title-container {
-  width: 440px;
+  width: 420px;
   padding: 10px;
   background-color: white;
   border-radius: 10px;
@@ -42,7 +42,7 @@ h1 {
 
 #main-container {
   display: none;
-  width: 440px;
+  width: 420px;
   margin-top: 10px;
   background-color: white;
   padding: 10px;
@@ -51,7 +51,7 @@ h1 {
 #other-container {
   background-color: rgba(255, 255, 255, 0.392);
   display: none;
-  width: 440px;
+  width: 420px;
   height: 400px;
   margin-top: 10px;
   padding: 10px;
@@ -137,4 +137,74 @@ a {
 a:hover {
   color: rgb(54, 98, 208);
   text-decoration: underline;
+}
+
+#loading-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  width: 460px;
+  height: 560px;
+  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+}
+
+#center {
+  padding-top: 200px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: ring 10s linear;
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px #000000;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px #136b67;
+  }
+
+  0% {
+    transform: rotate(350deg);
+    box-shadow: 1px 5px 2px #042b42;
+  }
+}
+
+#ring::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgb(255, 255, 255, 0.3);
+}
+
+#load {
+  color: 737373;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 200px;
+  animation: text 3s ease-in-out infinite;
+}
+
+@keyframes text {
+  50% {
+    color: #062850;
+  }
 }
