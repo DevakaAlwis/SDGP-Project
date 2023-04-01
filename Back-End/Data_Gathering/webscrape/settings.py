@@ -35,9 +35,9 @@ DOWNLOADER_MIDDLEWARES = {
 CONCURRENT_REQUESTS = 1
 
 ITEM_PIPELINES = {
-    'webscrape.pipelines.AmazonMongoDBPipeline': 300,
+    'webscrape.pipelines.MongoDBPipeline': 300,
 }
 
-
+# MongoDB connection
 MONGO_URI = 'mongodb+srv://liviniAdmin:dSTHFzXdNc4aHXV@cluster0.0c2sc0t.mongodb.net/?retryWrites=true&w=majority'
 MONGO_DATABASE = 'db'
