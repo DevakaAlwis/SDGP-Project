@@ -73,4 +73,4 @@ def updateSentimentLabels(reviews_collection, product_collection):
     return (statement)
 
 
-updateSentimentLabels()
+# updateSentimentLabels()
