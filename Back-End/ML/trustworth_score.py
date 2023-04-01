@@ -15,7 +15,7 @@ def runTrustWorthyScoreModel(product_collection):
 
     try:
         # loading the trustworth score model
-        loaded_rf_model = joblib.load('D:/sentiment_model/rf_model.sav')
+        loaded_rf_model = joblib.load('model/trustworthyScore_RFModel.sav')
         load = True
         statement = 'trustworthy score model loaded successfully.'
     except FileNotFoundError as e:
