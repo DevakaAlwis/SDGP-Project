@@ -1,8 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "ProRev Analyzer Extension",
-  "description": "Product details and comparison tool",
+  "name": "ProRev Analyzer",
+  "description": "Product details and comparison Extension.",
   "version": "1.0",
+  "host_permissions": ["http://localhost/*"],
+  "permissions": ["storage", "tabs"],
   "icons": {
     "16": "/images/logo-16.png",
     "32": "/images/logo-32.png",
@@ -16,21 +18,19 @@
 
   "content_scripts": [
     {
-      "matches": ["https://*.amazon.com/*"],
+      "matches": ["https://*.amazon.com/*", "https://*.walmart.com/*"],
       "js": ["scripts/content.js"]
     }
   ],
 
   "action": {
     "default_title": "Product Analysis",
-    "default_popup": "proRev-Analyzer_Extension.html",
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "images/logo-16.png",
       "32": "images/logo-32.png",
       "48": "images/logo-48.png",
       "128": "images/logo-128.png"
     }
-  },
-
-  "permissions": ["storage", "tabs"]
+  }
 }

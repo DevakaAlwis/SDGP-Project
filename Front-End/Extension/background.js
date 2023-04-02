@@ -1,18 +1,26 @@
-chrome.action.setBadgeText({
-  text: "-",
-});
+// let currentUrl = "";
+// let isAllowedSite = false;
 
-chrome.tabs.onUpdated.addListener(async (tab) => {
-  if (tab.url && tab.url.includes("amazon.com/*")) {
-    // We retrieve the action badge to check if the extension is 'ON' or 'OFF'
-    const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
-    // Next state will always be the opposite
-    const nextState = prevState === "4.2" ? "-" : "4.2";
-
-    // Set the action badge to the next state
-    await chrome.action.setBadgeText({
-      tabId: tab.id,
-      text: nextState,
+// Listen for messages from content scripts
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.type === "PRODUCT_INFO") {
+    // Save the product information to storage
+    chrome.storage.local.set({
+      productName: message.productName,
+      productId: message.productId,
+      productImage: message.productImage,
+      productPrice: message.productPrice,
+      productSiteName: message.productSiteName,
+      productRating: message.productRating,
+      productReviewCount: message.productReviewCount,
+      productURL: message.productURL,
     });
+
+    // Show the extension popup
+    chrome.action.setPopup({ popup: "popup.html" });
+  } else if (message.type === "Allowed") {
+    // Show the extension popup
+    currentUrl = message.url;
+    isAllowedSite = message.isAllowed;
   }
 });

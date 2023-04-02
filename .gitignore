@@ -3,3 +3,5 @@ __pycache__/
 
 # Distribution / packaging
 venv/
+
+.DS_Store

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <title>ProRev Analyzer</title>
+  </head>
+
+  <body class="background">
+    <div id="product-details-container">
+      <!-- title container -->
+      <div id="title-container">
+        <table>
+          <tr>
+            <td id="title-image-container">
+              <img
+                id="title-image"
+                src="images/logo-128.png"
+                alt="logo image"
+              />
+            </td>
+            <td id="title-name-container">
+              <h1>ProRev Analyzer</h1>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- display product details -->
+      <div id="main-container">
+        <div>
+          <table>
+            <tr>
+              <td>
+                <img id="product-image" src="images/image.png" alt="image" />
+              </td>
+              <td>
+                <p id="product-name-container">
+                  <span id="product-name"></span>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="content-container">
+          <hr />
+          <p>&#127919; Product ID : <span id="product-id"></span></p>
+          <p>&#127919; Product Price : <span id="product-price"></span></p>
+          <p>&#127919; Product Site Name : <span id="product-site"></span></p>
+          <p>&#127919; Product Rating : <span id="product-rating"></span></p>
+          <p>
+            &#127919; Product Review Count :
+            <span id="product-number-of-reviews"></span>
+          </p>
+          <p>
+            &#127919; Product URL :
+            <span> <a id="product-url" href="#" target="_blank"></a></span>
+          </p>
+          <div class="cbutton">
+            <button id="page-button">View Similar Products</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- display not a e-commerce site -->
+      <div id="other-container">
+        <h2 id="heading"><span id="icon">&#9888;</span> Wrong Page</h2>
+        <br />
+        <p>
+          The current page does not seem to be on Amazon product page or Walmart
+          product page. The ProRev Analyzer extension can only use for
+          <a href="https://www.amazon.com/">Amazon</a> and
+          <a href="https://www.walmart.com/">Walmart </a> items.
+        </p>
+        <p>Please try a Amazon or Walmart product page.</p>
+        <p>If retrying your request doesn't solve the issue, please visit</p>
+        <p><a href="#">http://ProRevAnalyzer.com/support.</a></p>
+      </div>
+    </div>
+    <div id="loading-container">
+      <div id="center">
+        <div id="ring"></div>
+        <span id="load">loading...</span>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
