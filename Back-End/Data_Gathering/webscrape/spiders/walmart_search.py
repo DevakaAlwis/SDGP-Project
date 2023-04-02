@@ -12,6 +12,7 @@ class WalmartSpider(scrapy.Spider):
 
     name = "walmart_search"  # name of the spider
     # starting function of the walmartnSearchSpider
+
     def start_requests(self):
         # keyword_list = ["iphone 13"]
 
@@ -27,16 +28,16 @@ class WalmartSpider(scrapy.Spider):
         productNameList = [item["productName"] for item in searchProducts]
         for keyword in productNameList:
             payload = {
-                "q": keyword, 
+                "q": keyword,
                 "sort": "best_seller",
                 "page": 1,
-                "affinityOverride": "default"
+                "affinityOverride": "default",
             }
             walmart_search_url = "https://www.walmart.com/search?" + urlencode(payload)
             yield scrapy.Request(
                 url=walmart_search_url,
                 callback=self.parse,
-                meta={'keyword': keyword, 'page': 1}
+                meta={"keyword": keyword, "page": 1},
             )
 
     # function to get product details
@@ -46,8 +47,10 @@ class WalmartSpider(scrapy.Spider):
             json_blob = json.loads(script_tag)
 
             # Request Product Page
-            product_list = json_blob["props"]["pageProps"]["initialData"]
-            ["searchResult"]["itemStacks"][0]["items"]
+            itemStack = json_blob["props"]["pageProps"]["initialData"]["searchResult"][
+                "itemStacks"
+            ][0]
+            product_list = itemStack["items"]
             count = 0
             item = WalmartProductItem()
             for product in product_list:

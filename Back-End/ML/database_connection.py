@@ -31,7 +31,7 @@ def databaseConnection():
             amazon_reviews_collection,
             amazon_product_collection,
             walmart_reviews_collection,
-            walmart_product_collection
+            walmart_product_collection,
         )
     except ConnectionFailure:
         # print(f'MongoDB connection error. {e}'); #if failed to connect to mongoDB
