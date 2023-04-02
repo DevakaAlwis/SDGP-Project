@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Poppins:wght@300;400&display=swap");
+
 body {
   background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
   width: 460px;
@@ -22,7 +23,7 @@ body {
   width: 70px;
 }
 
-#titleImage {
+#title-image {
   float: left;
   width: 70px;
   height: 70px;
@@ -35,9 +36,9 @@ body {
 h1 {
   text-align: center;
   font-size: 30px;
-  color: rgb(79, 87, 102);
+  color: #4f5766;
   margin: auto;
-  font-family: "Merriweather", serif;
+  font-family: Merriweather, serif;
 }
 
 #main-container {
@@ -48,8 +49,9 @@ h1 {
   padding: 10px;
   border-radius: 10px;
 }
+
 #other-container {
-  background-color: rgba(255, 255, 255, 0.392);
+  background-color: #ffffffbd;
   display: none;
   width: 420px;
   height: 400px;
@@ -60,11 +62,7 @@ h1 {
 
 #heading {
   font-size: 30px;
-  color: rgb(79, 87, 102);
-}
-
-#other-container p {
-  font-size: 15px;
+  color: #4f5766;
 }
 
 /* Style for the product image */
@@ -84,20 +82,24 @@ h1 {
 }
 
 #product-name {
-  font-family: "Merriweather", serif;
+  font-family: Merriweather, serif;
 }
 
 p {
-  font-size: 14px;
+  /* font-size: 14px; */
   color: #555;
   margin: 5px 0;
   padding: 3px;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: light;
 }
 
 p span {
   font-weight: bold;
+}
+
+#other-container p {
+  font-size: 15px;
 }
 
 button {
@@ -121,7 +123,7 @@ button {
   );
   border: none;
   border-radius: 15px;
-  box-shadow: 0 3px rgb(186, 186, 186);
+  box-shadow: 0 3px rgb(186 186 186);
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -135,7 +137,7 @@ a {
 }
 
 a:hover {
-  color: rgb(54, 98, 208);
+  color: #3662d0;
   text-decoration: underline;
 }
 
@@ -169,7 +171,7 @@ a:hover {
 @keyframes ring {
   0% {
     transform: rotate(0deg);
-    box-shadow: 1px 5px 2px #000000;
+    box-shadow: 1px 5px 2px #000;
   }
 
   50% {
@@ -177,7 +179,7 @@ a:hover {
     box-shadow: 1px 5px 2px #136b67;
   }
 
-  0% {
+  100% {
     transform: rotate(350deg);
     box-shadow: 1px 5px 2px #042b42;
   }
@@ -191,7 +193,7 @@ a:hover {
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgb(255, 255, 255, 0.3);
+  box-shadow: 0 0 5px #ffffff46;
 }
 
 #load {
