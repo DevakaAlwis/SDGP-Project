@@ -47,10 +47,19 @@ def runSentimentLabelModel(reviews_collection):
             # updating field in my collction to add sentiment count
             try:
                 reviews_collection.update_one(
-                    {"_id": item_id}, {'$set': {'sentimentLabel': sentiment_prediction}})
-                statement = 'Sentiment Label added to the reviews sucessfully.', str(error), ' errors.'
+                    {"_id": item_id}, {'$set': {'sentimentLabel': sentiment_prediction}}
+                )
+                statement = (
+                    'Sentiment Label added to the reviews sucessfully.',
+                    str(error),
+                    ' errors.',
+                )
             except WriteError:
-                statement = ' An error ocured while updating the database', str(error), ' errors.'
+                statement = (
+                    ' An error ocured while updating the database',
+                    str(error),
+                    ' errors.',
+                )
                 error += 1
     return statement
 

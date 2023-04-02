@@ -6,7 +6,7 @@ from webscrape.items import AmazonProductItem
 from webscrape.settings import MONGO_DATABASE, MONGO_URI
 
 
-# class for amazon search spider to scrape the amazon products 
+# class for amazon search spider to scrape the amazon products
 class AmazonSearchSpider(scrapy.Spider):
     name = "amazon_search"  # name of the spider
 
@@ -43,12 +43,12 @@ class AmazonSearchSpider(scrapy.Spider):
             if count < 2:
 
                 relative_url = product.css("h2>a::attr(href)").get()
-                asin = (relative_url.split("/")[3]
-                        if len(relative_url.split('/')) >= 4
-                        else None
+                asin = (
+                    relative_url.split("/")[3]
+                    if len(relative_url.split('/')) >= 4
+                    else None
                 )
-                product_url = urljoin("https://www.amazon.com/",
-                                      relative_url).split(
+                product_url = urljoin("https://www.amazon.com/", relative_url).split(
                     "?"
                 )[0]
                 item["productId"] = asin
@@ -61,7 +61,7 @@ class AmazonSearchSpider(scrapy.Spider):
                 rating = (
                     product.css("span[aria-label~=stars]::attr(aria-label)").re(
                         r"(\d+\.*\d*) out"
-                    ) 
+                    )
                     or [None]
                 )[0]
                 item["productRating"] = rating

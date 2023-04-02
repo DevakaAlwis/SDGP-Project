@@ -6,10 +6,10 @@
 import pymongo
 from pymongo.errors import DuplicateKeyError
 from webscrape.items import (
-        AmazonProductItem,
-        AmazonReviewItem,
-        WalmartProductItem,
-        WalmartReviewItem,
+    AmazonProductItem,
+    AmazonReviewItem,
+    WalmartProductItem,
+    WalmartReviewItem,
 )
 
 
@@ -42,7 +42,8 @@ class MongoDBPipeline:
 
     def process_item(self, item, spider):
         try:
-            # check if the spider name is equal to the correspondent spider and insert the data to the correspondent collection
+            # check if the spider name is equal to the correspondent spider and 
+            # insert the data to the correspondent collection
             if spider.name == "amazon_search":
                 collection_name = "amazonProducts"
                 self.db[collection_name].insert_one(dict(AmazonProductItem(item)))
