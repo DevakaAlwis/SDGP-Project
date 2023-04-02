@@ -1,7 +1,9 @@
 from pymongo.errors import CollectionInvalid, OperationFailure, WriteError
 
-# function to update the sentiment sentiment label to number of positive, negetive, neutral reviews, 
+# function to update the sentiment sentiment label to number of positive, negetive, neutral reviews,
 # number of reviews found, and it's rating to products collection
+
+
 def updateSentimentLabels(reviews_collection, product_collection):
     statement = ""
     try:
@@ -46,7 +48,10 @@ def updateSentimentLabels(reviews_collection, product_collection):
         # zore division error validation
         if foundReviewCount != 0:
             # calculate the average of the review rating
-            averageReviewRating = round(foundReviewsRating/foundReviewCount, 1)
+            averageReviewRating = round(
+                foundReviewsRating / foundReviewCount,
+                1,
+            )
         statement = (
             "productID: ",
             productID,
@@ -59,7 +64,7 @@ def updateSentimentLabels(reviews_collection, product_collection):
             " | negative: ",
             negative,
             " | averageReviewRating: ",
-            averageReviewRating
+            averageReviewRating,
         )
 
         try:
@@ -90,7 +95,7 @@ def updateSentimentLabels(reviews_collection, product_collection):
                 " | negative: ",
                 negative,
                 " | averageReviewRating: ",
-                averageReviewRating
+                averageReviewRating,
             )
         except WriteError:
             statement = "An error ocured while updating the database."

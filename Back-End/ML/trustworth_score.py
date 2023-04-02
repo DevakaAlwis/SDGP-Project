@@ -39,7 +39,7 @@ def runTrustWorthyScoreModel(product_collection):
                         product["foundReviewCount"],
                         product["positiveReviews"],
                         product["neutralReviews"],
-                        product["negativeReviews"]
+                        product["negativeReviews"],
                     ]
                 ]
                 trustworth_score = loaded_rf_model.predict(features)

@@ -6,10 +6,10 @@
 import pymongo
 from pymongo.errors import DuplicateKeyError
 from webscrape.items import (
-        AmazonProductItem,
-        AmazonReviewItem,
-        WalmartProductItem,
-        WalmartReviewItem,
+    AmazonProductItem,
+    AmazonReviewItem,
+    WalmartProductItem,
+    WalmartReviewItem,
 )
 
 
@@ -27,8 +27,8 @@ class MongoDBPipeline:
     def from_crawler(cls, crawler):
         return cls(
             mongo_uri=crawler.settings.get("MONGO_URI"),
-            mongo_db=crawler.settings.get("MONGO_DATABASE")
-            )
+            mongo_db=crawler.settings.get("MONGO_DATABASE"),
+        )
 
     # method is called when the spider is closed
     def open_spider(self, spider):
@@ -42,7 +42,8 @@ class MongoDBPipeline:
 
     def process_item(self, item, spider):
         try:
-            # check if the spider name is equal to the correspondent spider and insert the data to the correspondent collection
+            # check if the spider name is equal to the correspondent spider and
+            # insert the data to the correspondent collection
             if spider.name == "amazon_search":
                 collection_name = "amazonProducts"
                 self.db[collection_name].insert_one(dict(AmazonProductItem(item)))
@@ -50,7 +51,7 @@ class MongoDBPipeline:
                 collection_name = "amazonReviews"
                 self.db[collection_name].insert_one(dict(AmazonReviewItem(item)))
             elif spider.name == "walmart_search":
-                collection_name = 'walmartProducts'
+                collection_name = "walmartProducts"
                 self.db[collection_name].insert_one(dict(WalmartProductItem(item)))
             elif spider.name == "walmart_reviews":
                 collection_name = "walmartReviews"
