@@ -1,6 +1,5 @@
 from pymongo.errors import CollectionInvalid, OperationFailure, WriteError
 
-
 # function to update the sentiment sentiment label to number of positive, negetive, neutral reviews,
 # number of reviews found, and it's rating to products collection
 
@@ -50,7 +49,7 @@ def updateSentimentLabels(reviews_collection, product_collection):
         if foundReviewCount != 0:
             # calculate the average of the review rating
             averageReviewRating = round(
-                foundReviewsRating/foundReviewCount, 
+                foundReviewsRating / foundReviewCount,
                 1,
             )
         statement = (

@@ -11,7 +11,8 @@ from webscrape.settings import MONGO_DATABASE, MONGO_URI
 class WalmartSpider(scrapy.Spider):
 
     name = "walmart_search"  # name of the spider
-    # starting function of the walmartnSearchSpider
+    # starting function of the walmartnSearchSpider 
+
     def start_requests(self):
         # keyword_list = ["iphone 13"]
 
@@ -36,7 +37,7 @@ class WalmartSpider(scrapy.Spider):
             yield scrapy.Request(
                 url=walmart_search_url,
                 callback=self.parse,
-                meta={'keyword': keyword, 'page': 1},
+                meta={"keyword": keyword, "page": 1},
             )
 
     # function to get product details
@@ -46,8 +47,10 @@ class WalmartSpider(scrapy.Spider):
             json_blob = json.loads(script_tag)
 
             # Request Product Page
-            itemStack = json_blob["props"]["pageProps"]["initialData"]["searchResult"]["itemStacks"][0]
-            product_list=itemStack["items"]
+            itemStack = json_blob["props"]["pageProps"]["initialData"]["searchResult"][
+                "itemStacks"
+            ][0]
+            product_list = itemStack["items"]
             count = 0
             item = WalmartProductItem()
             for product in product_list:

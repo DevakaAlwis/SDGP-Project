@@ -47,12 +47,12 @@ def runSentimentLabelModel(reviews_collection):
             # updating field in my collction to add sentiment count
             try:
                 reviews_collection.update_one(
-                    {"_id": item_id}, {'$set': {'sentimentLabel': sentiment_prediction}}
+                    {"_id": item_id}, {"$set": {"sentimentLabel": sentiment_prediction}}
                 )
                 statement = (
-                    'Sentiment Label added to the reviews sucessfully.',
+                    "Sentiment Label added to the reviews sucessfully.",
                     str(error),
-                    ' errors.',
+                    " errors.",
                 )
             except WriteError:
                 statement = (

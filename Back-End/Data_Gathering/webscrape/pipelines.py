@@ -27,8 +27,8 @@ class MongoDBPipeline:
     def from_crawler(cls, crawler):
         return cls(
             mongo_uri=crawler.settings.get("MONGO_URI"),
-            mongo_db=crawler.settings.get("MONGO_DATABASE")
-            )
+            mongo_db=crawler.settings.get("MONGO_DATABASE"),
+        )
 
     # method is called when the spider is closed
     def open_spider(self, spider):
@@ -42,7 +42,7 @@ class MongoDBPipeline:
 
     def process_item(self, item, spider):
         try:
-            # check if the spider name is equal to the correspondent spider and 
+            # check if the spider name is equal to the correspondent spider and
             # insert the data to the correspondent collection
             if spider.name == "amazon_search":
                 collection_name = "amazonProducts"

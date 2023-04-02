@@ -24,7 +24,9 @@ class AmazonSearchSpider(scrapy.Spider):
         productNameList = [item["productName"] for item in searchProducts]
 
         # keywords = getattr(self, 'keywords')
-        # keywords = ['Black Soft Faux Vegan PU {Peta Approved Vegan} Leather by The Yard Synthetic Pleather 0.9 mm Nappa Yards (72 inch Wide x 52 inch) Soft Smooth Upholstery (Black Pebble, 2 Yards (72"x54"))']
+        # keywords = ['Black Soft Faux Vegan PU {Peta Approved Vegan} Leather by
+        # The Yard Synthetic Pleather 0.9 mm Nappa Yards (72 inch Wide x 52 inch) Soft Smooth
+        # Upholstery (Black Pebble, 2 Yards (72"x54"))']
         for keyword in productNameList:
             amazon_search_url = f"https://www.amazon.com/s?k={keyword}&page=1"
             yield scrapy.Request(url=amazon_search_url, callback=self.parse)
@@ -45,7 +47,7 @@ class AmazonSearchSpider(scrapy.Spider):
                 relative_url = product.css("h2>a::attr(href)").get()
                 asin = (
                     relative_url.split("/")[3]
-                    if len(relative_url.split('/')) >= 4
+                    if len(relative_url.split("/")) >= 4
                     else None
                 )
                 product_url = urljoin("https://www.amazon.com/", relative_url).split(
