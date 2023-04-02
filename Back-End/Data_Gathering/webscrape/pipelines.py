@@ -51,7 +51,7 @@ class MongoDBPipeline:
                 collection_name = "amazonReviews"
                 self.db[collection_name].insert_one(dict(AmazonReviewItem(item)))
             elif spider.name == "walmart_search":
-                collection_name = 'walmartProducts'
+                collection_name = "walmartProducts"
                 self.db[collection_name].insert_one(dict(WalmartProductItem(item)))
             elif spider.name == "walmart_reviews":
                 collection_name = "walmartReviews"

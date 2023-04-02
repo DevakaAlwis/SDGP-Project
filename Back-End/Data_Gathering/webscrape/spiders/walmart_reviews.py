@@ -11,6 +11,7 @@ class WalmartSpider(scrapy.Spider):
     name = "walmart_reviews"  # name of the spider
 
     # starting function of the walmartReviewSpider
+
     def start_requests(self):
         # id_list = ["1362658851"]
 
@@ -82,10 +83,10 @@ class WalmartSpider(scrapy.Spider):
                         f"https://www.walmart.com/reviews/product/{id}?page={page}"
                     )
                     yield scrapy.Request(
-                        url = next_url,
-                        callback = self.parse_review_pages,
-                        dont_filter = False,
-                        meta = {"id": id, "page": page},
+                        url=next_url,
+                        callback=self.parse_review_pages,
+                        dont_filter=False,
+                        meta={"id": id, "page": page},
                     )
 
 

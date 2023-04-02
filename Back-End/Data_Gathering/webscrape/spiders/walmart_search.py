@@ -11,7 +11,7 @@ from webscrape.settings import MONGO_DATABASE, MONGO_URI
 class WalmartSpider(scrapy.Spider):
 
     name = "walmart_search"  # name of the spider
-    # starting function of the walmartnSearchSpider 
+    # starting function of the walmartnSearchSpider
 
     def start_requests(self):
         # keyword_list = ["iphone 13"]

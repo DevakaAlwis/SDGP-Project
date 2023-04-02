@@ -56,9 +56,9 @@ def runSentimentLabelModel(reviews_collection):
                 )
             except WriteError:
                 statement = (
-                    ' An error ocured while updating the database',
+                    " An error ocured while updating the database",
                     str(error),
-                    ' errors.',
+                    " errors.",
                 )
                 error += 1
     return statement
