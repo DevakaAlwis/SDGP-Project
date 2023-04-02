@@ -35,13 +35,12 @@ def runSentimentLabelModel(reviews_collection):
             try:
                 transformed_text = loaded_vectorizer.transform(
                     [review["reviewText"]]
-                    ).toarray()
+                ).toarray()
                 sentiment_prediction = loaded_svm_model.predict(transformed_text)[0]
             except Exception:
                 # if model fails to label the review
                 error += 1
-                statement = "Error labeling the model. With", str(
-                    error), " errors."
+                statement = "Error labeling the model. With", str(error), " errors."
                 continue
 
             # print("Label: ",sentiment_prediction," | reviewText: ",review['reviewText'])
@@ -49,13 +48,12 @@ def runSentimentLabelModel(reviews_collection):
             try:
                 reviews_collection.update_one(
                     {"_id": item_id}, {'$set': {'sentimentLabel': sentiment_prediction}})
-                statement = 'Sentiment Label added to the reviews sucessfully.', str(
-                    error), ' errors.'
+                statement = 'Sentiment Label added to the reviews sucessfully.', str(error), ' errors.'
             except WriteError:
-                statement = ' An error ocured while updating the database', str(
-                    error), ' errors.'
+                statement = ' An error ocured while updating the database', str(error), ' errors.'
                 error += 1
     return statement
+
 
 # result = runSentimentLabelModel()
 # print(result)

@@ -33,7 +33,7 @@ chrome.storage.local.get(
     const productSiteNameEl = document.getElementById("product-site");
     const productRatingEl = document.getElementById("product-rating");
     const productReviewCountEl = document.getElementById(
-      "product-numberOfReviews"
+      "product-number-of-reviews"
     );
     const productURLEl = document.getElementById("product-url");
 

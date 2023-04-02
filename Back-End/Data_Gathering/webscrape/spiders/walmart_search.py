@@ -1,7 +1,8 @@
 import json
+from urllib.parse import urlencode, urljoin
+
 import pymongo
 import scrapy
-from urllib.parse import urlencode, urljoin
 from webscrape.items import WalmartProductItem
 from webscrape.settings import MONGO_DATABASE, MONGO_URI
 
@@ -9,8 +10,7 @@ from webscrape.settings import MONGO_DATABASE, MONGO_URI
 # class for amazon search spider to scrape the amazon products
 class WalmartSpider(scrapy.Spider):
 
-    name = "walmart_search" # name of the spider
-
+    name = "walmart_search"  # name of the spider
     # starting function of the walmartnSearchSpider
     def start_requests(self):
         # keyword_list = ["iphone 13"]
@@ -29,14 +29,15 @@ class WalmartSpider(scrapy.Spider):
             payload = {
                 "q": keyword, 
                 "sort": "best_seller",
-                "page": 1, 
+                "page": 1,
                 "affinityOverride": "default"
-                }
+            }
             walmart_search_url = "https://www.walmart.com/search?" + urlencode(payload)
-            yield scrapy.Request(url=walmart_search_url, 
-                                 callback=self.parse, 
-                                 meta={'keyword': keyword, 'page': 1}
-                                 )
+            yield scrapy.Request(
+                url=walmart_search_url,
+                callback=self.parse,
+                meta={'keyword': keyword, 'page': 1}
+            )
 
     # function to get product details
     def parse(self, response):
@@ -55,12 +56,18 @@ class WalmartSpider(scrapy.Spider):
                     try:
                         item["productId"] = product.get("usItemId")
                         item["productName"] = product.get("name")
-                        item["productPrice"] = product["priceInfo"].get("linePriceDisplay")
+                        item["productPrice"] = product["priceInfo"].get(
+                            "linePriceDisplay"
+                        )
                         relative_url = product.get("canonicalUrl")
-                        item["productURL"] = urljoin("https://www.walmart.com/", relative_url).split("?")[0]
+                        item["productURL"] = urljoin(
+                            "https://www.walmart.com/", relative_url
+                        ).split("?")[0]
                         item["productSiteName"] = "Walmart"
                         item["productRating"] = product["rating"].get("averageRating")
-                        item["productReviewCount"] = product["rating"].get("numberOfReviews")
+                        item["productReviewCount"] = product["rating"].get(
+                            "numberOfReviews"
+                        )
                         item["productImage"] = product["imageInfo"].get("thumbnailUrl")
 
                         # yield{

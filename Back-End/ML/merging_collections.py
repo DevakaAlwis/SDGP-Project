@@ -1,10 +1,10 @@
-import pymongo
-from pymongo.errors import CollectionInvalid, OperationFailure, WriteError
+from pymongo.errors import CollectionInvalid
+
 
 # function to merge products with amazon and walmart collections
 def mergingProducts(
-        products_collection,amazon_product_collection,walmart_product_collection
-        ):
+        products_collection, amazon_product_collection, walmart_product_collection
+    ):
     # empty string to return the statement
     statement = ""
     try:
@@ -14,7 +14,7 @@ def mergingProducts(
         for product in amazonProducts:
             products_collection.insert_one(product)
         statement = statement + "Amazon products added sucessfully."
-    except CollectionInvalid as e:
+    except CollectionInvalid:
         statement = statement + "No Amazon products added."
     try:
         # walamrt product Collection
@@ -23,13 +23,13 @@ def mergingProducts(
         for product in walmartProducts:
             products_collection.insert_one(product)
         statement = statement + "Walmart products added sucessfully."
-    except CollectionInvalid as e:
+    except CollectionInvalid:
         statement = statement + "No Walmart products added."
     return statement
 
 def mergingReviews(
-        reviews_collection,amazon_reviews_collection,walmart_reviews_collection
-        ):
+        reviews_collection, amazon_reviews_collection, walmart_reviews_collection
+    ):
     # empty string to return the statement
     statement = ""
     try:
@@ -39,7 +39,7 @@ def mergingReviews(
         for review in amazonReviews:
             reviews_collection.insert_one(review)
         statement = statement + "Amazon Reviews added sucessfully."
-    except CollectionInvalid as e:
+    except CollectionInvalid:
         statement = statement + "No Amazon Reviews added."
     try:
         # walamrt review Collection
@@ -48,6 +48,6 @@ def mergingReviews(
         for review in walmartReviews:
             reviews_collection.insert_one(review)
         statement = statement + "Walmart reviews added sucessfully."
-    except CollectionInvalid as e:
+    except CollectionInvalid:
         statement = statement + "No Walmart reviews added."
     return statement

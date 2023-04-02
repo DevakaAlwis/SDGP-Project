@@ -7,7 +7,7 @@ def runTrustWorthyScoreModel(product_collection):
 
     # getting product Collection
     products = product_collection.find()
-    statement = "''"
+    statement = ""
     load = False
 
     try:
@@ -35,21 +35,24 @@ def runTrustWorthyScoreModel(product_collection):
             if reviewCount != 0:
                 features = [
                     [
-                     product["foundReviewRating"], 
-                     product["foundReviewCount"],
-                     product["positiveReviews"], 
-                     product["neutralReviews"], 
-                     product["negativeReviews"]
-                     ]
+                        product["foundReviewRating"],
+                        product["foundReviewCount"],
+                        product["positiveReviews"],
+                        product["neutralReviews"],
+                        product["negativeReviews"]
                     ]
+                ]
                 trustworth_score = loaded_rf_model.predict(features)
                 trustworth_score = round(float(trustworth_score[0]), 1)
                 print(trustworth_score)
             # updating the products collection
             try:
                 product_collection.update_one(
-                    {"_id": item_id}, {"$set": {"TrustworthyScore": trustworth_score}})
-                statement = "Trustworthy Score added to the products collection sucessfully."
+                    {"_id": item_id}, {"$set": {"TrustworthyScore": trustworth_score}}
+                )
+                statement = (
+                    "Trustworthy Score added to the products collection sucessfully."
+                )
 
             except WriteError:
                 statement = "An error occured while updating data to collection."

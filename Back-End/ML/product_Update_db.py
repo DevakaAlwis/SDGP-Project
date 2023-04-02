@@ -1,16 +1,14 @@
-import pymongo
 from pymongo.errors import CollectionInvalid, OperationFailure, WriteError
 
-# function to update the sentiment sentiment label to number of positive, negetive, neutral reviews, number of reviews found, and it's rating to products collection
-
-
+# function to update the sentiment sentiment label to number of positive, negetive, neutral reviews, 
+# number of reviews found, and it's rating to products collection
 def updateSentimentLabels(reviews_collection, product_collection):
     statement = ""
     try:
         # product Collection
         products = product_collection.find()
         statement = "Product collection access sucessfully."
-    except CollectionInvalid as e:
+    except CollectionInvalid:
         statement = "Collection not available."
 
     # update the values
@@ -27,7 +25,7 @@ def updateSentimentLabels(reviews_collection, product_collection):
             # reviews Collection
             reviews = reviews_collection.find()
             statement = "Reviews collection access sucessfully."
-        except CollectionInvalid as e:
+        except CollectionInvalid:
             statement = "Collection not available."
 
         for review in reviews:
@@ -49,49 +47,56 @@ def updateSentimentLabels(reviews_collection, product_collection):
         if foundReviewCount != 0:
             # calculate the average of the review rating
             averageReviewRating = round(foundReviewsRating/foundReviewCount, 1)
-        statement = ("productID: ", 
-                     productID, 
-                     " | foundReviewCount: ", 
-                     foundReviewCount, 
-                     " | positive: ", 
-                     positive, 
-                     " | neutral: ", 
-                     neutral, 
-                     " | negative: ",
-                     negative, 
-                     " | averageReviewRating: ", 
-                     averageReviewRating
-                     )
+        statement = (
+            "productID: ",
+            productID,
+            " | foundReviewCount: ",
+            foundReviewCount,
+            " | positive: ",
+            positive,
+            " | neutral: ",
+            neutral,
+            " | negative: ",
+            negative,
+            " | averageReviewRating: ",
+            averageReviewRating
+        )
 
         try:
             product_collection.update_one(
-                {"_id": item_id}, {"$set": {"positiveReviews": positive}})
+                {"_id": item_id}, {"$set": {"positiveReviews": positive}}
+            )
             product_collection.update_one(
-                {"_id": item_id}, {"$set": {"neutralReviews": neutral}})
+                {"_id": item_id}, {"$set": {"neutralReviews": neutral}}
+            )
             product_collection.update_one(
-                {"_id": item_id}, {"$set": {"negativeReviews": negative}})
+                {"_id": item_id}, {"$set": {"negativeReviews": negative}}
+            )
             product_collection.update_one(
-                {"_id": item_id}, {"$set": {"foundReviewCount": foundReviewCount}})
+                {"_id": item_id}, {"$set": {"foundReviewCount": foundReviewCount}}
+            )
             product_collection.update_one(
-                {"_id": item_id}, {"$set": {"foundReviewRating": averageReviewRating}})
+                {"_id": item_id}, {"$set": {"foundReviewRating": averageReviewRating}}
+            )
             statement = "Products added to the collection."
 
-            print("foundReviewCount: ", 
-                  foundReviewCount, 
-                  " | positive: ", 
-                  positive, 
-                  " | neutral: ",
-                  neutral, 
-                  " | negative: ", 
-                  negative, 
-                  " | averageReviewRating: ", 
-                  averageReviewRating
-                  )
+            print(
+                "foundReviewCount: ",
+                foundReviewCount,
+                " | positive: ",
+                positive,
+                " | neutral: ",
+                neutral,
+                " | negative: ",
+                negative,
+                " | averageReviewRating: ",
+                averageReviewRating
+            )
         except WriteError:
             statement = "An error ocured while updating the database."
         except OperationFailure:
             statement = "An error occured while reading data from collection."
-    return (statement)
+    return statement
 
 
 # updateSentimentLabels()
