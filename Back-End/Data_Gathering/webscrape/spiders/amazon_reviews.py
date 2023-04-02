@@ -41,7 +41,7 @@ class AmazonReviewsSpider(scrapy.Spider):
                     meta={"asin": asin, "retry_count": 0},
                 )
 
-    # function to get reviews 
+    # function to get reviews
     def parse_reviews(self, response):
         asin = response.meta["asin"]
         retry_count = response.meta["retry_count"]
@@ -51,12 +51,12 @@ class AmazonReviewsSpider(scrapy.Spider):
         ).get()  # check if there is a next page
         if next_page_relative_url is not None:
             retry_count = 0
-            next_page = urljoin("https://www.amazon.com/",next_page_relative_url)
+            next_page = urljoin("https://www.amazon.com/", next_page_relative_url)
             yield scrapy.Request(
                 url=next_page,
                 callback=self.parse_reviews,
                 dont_filter=False,
-                meta={'asin': asin, 'retry_count': retry_count},
+                meta={"asin": asin, "retry_count": retry_count},
             )
 
         # Adding this retry_count here so we retry any amazon js rendered review pages
@@ -66,7 +66,7 @@ class AmazonReviewsSpider(scrapy.Spider):
                 url=response.url,
                 callback=self.parse_reviews,
                 dont_filter=False,
-                meta={'asin': asin, 'retry_count': retry_count},
+                meta={"asin": asin, "retry_count": retry_count},
             )
 
         # Parse Product Reviews
@@ -82,6 +82,7 @@ class AmazonReviewsSpider(scrapy.Spider):
                 "*[data-hook*=review-star-rating] ::text"
             ).re(r"(\d+\.*\d*) out")[0]
             yield item
+
 
 # References
 # https://scrapy.org/
