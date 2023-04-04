@@ -147,9 +147,9 @@ a:hover {
   top: 0;
   left: 0;
   padding: 0;
-  width: 460px;
-  height: 560px;
-  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, #0e8488d9 0%, #cbe4de 100%);
 }
 
 #center {
@@ -165,7 +165,7 @@ a:hover {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  animation: ring 10s linear;
+  animation: ring 10s linear infinite;
 }
 
 @keyframes ring {
@@ -196,17 +196,24 @@ a:hover {
   box-shadow: 0 0 5px #ffffff46;
 }
 
-#load {
-  color: 737373;
+#display-text {
+  color: #737373;
   font-size: 20px;
-  text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 200px;
   animation: text 3s ease-in-out infinite;
 }
 
 @keyframes text {
+  0% {
+    color: #737373;
+  }
+
   50% {
     color: #062850;
+  }
+
+  100% {
+    color: #737373;
   }
 }
