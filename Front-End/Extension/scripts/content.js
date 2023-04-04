@@ -1,12 +1,3 @@
-// Check if the current page is an Amazon or walmart product page and send the message to the extension
-const currentUrl = window.location.href;
-const isAllowedSite = isAmazonProductPage() || isWalmartProductPage();
-chrome.runtime.sendMessage({
-  type: "Allowed",
-  url: currentUrl,
-  isAllowed: isAllowedSite,
-});
-
 // Check if the current page is an Amazon or walmart product page
 if (isAmazonProductPage() || isWalmartProductPage()) {
   const productName = getProductName(); // Get the product name
@@ -124,7 +115,7 @@ function getProductImage() {
       json.props.pageProps.initialData.data.product.imageInfo.allImages[0].url
     ) {
       productImage =
-        data.props.pageProps.initialData.data.product.imageInfo.allImages[0]
+        json.props.pageProps.initialData.data.product.imageInfo.allImages[0]
           .url;
     }
   }
@@ -134,6 +125,7 @@ function getProductImage() {
 // Function to get the product Price from the page
 function getProductPrice() {
   let productPrice = "";
+  // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     const priceElement = document.getElementsByClassName(
       "reinventPricePriceToPayMargin"
@@ -163,6 +155,7 @@ function getProductPrice() {
 // Function to get the product Site Name from the page
 function getProductSiteName() {
   let productSiteName = "";
+  // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     if (window.location.hostname.includes("amazon.com")) {
       productSiteName = "Amazon";
@@ -176,6 +169,7 @@ function getProductSiteName() {
 // Function to get the product Rating from the page
 function getProductRating() {
   let productRating = "";
+  // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     const titleElement = document.querySelector("#acrPopover"); // Get the product rating element
     if (titleElement) {
@@ -197,6 +191,7 @@ function getProductRating() {
 // Function to get the product Review Count from the page
 function getProductReviewCount() {
   let reviewCount = "";
+  // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     const productReviewCountElement = document.getElementById(
       "acrCustomerReviewText"
@@ -222,6 +217,7 @@ function getProductReviewCount() {
 // Function to get the product URL from the page
 function getProductURL() {
   let productURL = "";
+  // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     const currentUrl = window.location.href;
     // Find the product ID in the URL
@@ -231,6 +227,7 @@ function getProductURL() {
   } else if (isWalmartProductPage()) {
     const script = document.querySelector("#__NEXT_DATA__");
     const json = JSON.parse(script.textContent);
+    // Check if the URL link is exists
     if (
       json.props.pageProps.initialData.data.contentLayout.pageMetadata
         .pageContext.itemContext.productUrl
