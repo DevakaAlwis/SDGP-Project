@@ -3,7 +3,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const currentTab = tabs[0]
   if (
     (currentTab.url.includes('amazon.com') &&
-      currentTab.url.includes("/dp/")) ||
+      currentTab.url.includes('/dp/')) ||
     (currentTab.url.includes('walmart.com') && currentTab.url.includes('/ip/'))
   ) {
     document.getElementById('main-container').style.display = 'block'
@@ -22,7 +22,7 @@ chrome.storage.local.get(
     'productSiteName',
     'productRating',
     'productReviewCount',
-    'productURL',
+    'productURL'
   ],
   function (result) {
     // get the elements from the popup.html
@@ -38,7 +38,7 @@ chrome.storage.local.get(
     const productURLEl = document.getElementById('product-url')
 
     // put the data in the relavent positions
-    const imageURL = result.productImage;  //handle this error
+    const imageURL = result.productImage 
     productImageEl.src = imageURL
     productNameEl.innerText = result.productName
     productIdEl.innerText = result.productId
@@ -52,7 +52,7 @@ chrome.storage.local.get(
 )
 
 // onclick action for button
-  document.getElementById('page-button').addEventListener('click', function () {
+document.getElementById('page-button').addEventListener('click', function () {
   document.getElementById('loading-container').style.display = 'block'
   document.getElementById('main-container').style.display = 'none'
   document.getElementById('other-container').style.display = 'none'
