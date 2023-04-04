@@ -19,16 +19,6 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
       rel="stylesheet"
     />
-
-    <script type="text/javascript">
-      // <![CDATA[
-      function loading() {
-        document.getElementById("loading-container").style.display = "block";
-        document.getElementById("main-container").style.display = "none";
-      } //preloader
-      window.onload = preloader;
-      // ]]>
-    </script>
   </head>
   <body>
     <div id="main-container">
@@ -40,8 +30,8 @@
               class="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#navbarTogglerDemo03"
-              aria-controls="navbarTogglerDemo03"
+              data-bs-target="#nav-bar-toggler-demo03"
+              aria-controls="nav-bar-toggler-demo03"
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
@@ -50,7 +40,7 @@
             <a class="navbar-brand" href="{{url_for('index') }}">
               ProRev Analyzer
             </a>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div class="collapse navbar-collapse" id="nav-bar-toggler-demo03">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a
@@ -197,5 +187,15 @@
         <span id="display-text">loading...</span>
       </div>
     </div>
+
+    <script type="text/javascript">
+      // <![CDATA[
+      function loading() {
+        document.getElementById("loading-container").style.display = "block";
+        document.getElementById("main-container").style.display = "none";
+      } //preloader
+      window.onload = preloader;
+      // ]]>
+    </script>
   </body>
 </html>

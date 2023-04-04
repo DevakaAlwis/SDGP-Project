@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
 
 body {
   background-size: cover;
@@ -121,7 +121,7 @@ td {
 }
 
 #score-label {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Alkatra, cursive;
   font-weight: 500;
   font-size: 18px;
 }
