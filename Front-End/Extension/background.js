@@ -1,3 +1,4 @@
+const chrome = window.chrome;
 // let currentUrl = "";
 // let isAllowedSite = false;
 
