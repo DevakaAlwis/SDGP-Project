@@ -1,3 +1,7 @@
+import os
+
+from dotenv import load_dotenv
+
 BOT_NAME = "webscrape"
 
 SPIDER_MODULES = ["webscrape.spiders"]
@@ -7,9 +11,10 @@ NEWSPIDER_MODULE = "webscrape.spiders"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-
-# SCRAPEOPS_API_KEY = "cb20c190-26f8-4c75-a805-8e81ed87e92f"     # devaka key
-SCRAPEOPS_API_KEY = "617e74a2-96f9-4eba-ac12-59552235e249"  # bimsara key
+# Scrapeops API key
+load_dotenv()
+WEBSCRAPE_API_KEY = os.getenv("WEBSCRAPE_API_KEY")
+SCRAPEOPS_API_KEY = WEBSCRAPE_API_KEY  # key
 
 
 SCRAPEOPS_PROXY_ENABLED = True

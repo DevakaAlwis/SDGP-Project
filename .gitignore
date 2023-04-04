@@ -26,9 +26,13 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+venv/
+env/
 .vscode/
 .DS_Store
 .env
+venv/
+env/
 
 ## Custom
 data/
