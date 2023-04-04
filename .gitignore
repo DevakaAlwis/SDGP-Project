@@ -31,6 +31,8 @@ env/
 .vscode/
 .DS_Store
 .env
+venv/
+env/
 
 ## Custom
 data/

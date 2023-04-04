@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF -8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProRev Analyzer</title>
+    <link rel="icon" href="../static/images/favicon.ico" />
+    <link rel="stylesheet" href="../static/css/page.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="main-container">
+      <!-- Nav Bar -->
+      <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#nav-bar-toggler-demo03"
+              aria-controls="nav-bar-toggler-demo03"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="{{url_for('index') }}">
+              ProRev Analyzer
+            </a>
+            <div class="collapse navbar-collapse" id="nav-bar-toggler-demo03">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="{{url_for('index') }}"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('about') }}">
+                    About Us
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div>
+        <h3><b> Comparison </b></h3>
+      </div>
+
+      <main>
+        <section class="container">
+          {% for product in products %}
+          <div class="card">
+            <div class="card-image">
+              <img
+                class="site-image"
+                src="{%if product.productSiteName=='Amazon'%}
+                {{url_for('static', filename='/images/amazon.png') }}
+                {%else%}
+                {{url_for('static', filename='/images/walmart.png') }}
+                {%endif%}"
+                alt="Amazon"
+              />
+            </div>
+            <div class="card-image">
+              <img
+                class="product-image"
+                src="{{product.productImage}}"
+                alt="Amazon"
+              />
+            </div>
+
+            <hr />
+
+            <table>
+              <tr id="name-container">
+                <td colspan="2" id="product-name">
+                  <b>{{product.productName|truncate(100, True, '...')}}</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2"><br /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2" id="product-id">
+                  Product ID
+                  <b>
+                    {% if product.productId == 'picassoRedirect.html' or
+                    product.productId is none %} None {% else %}
+                    {{product.productId}} {% endif %}
+                  </b>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="title-col">Product Price :</td>
+                <td>
+                  <b>
+                    {% if product.productPrice is not none and
+                    product.productPrice.startswith('Now ') %}
+                    {{product.productPrice[4:] }} {% else %}
+                    {{product.productPrice }} {% endif %}
+                  </b>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="title-col">Product Rating :</td>
+                <td><b>{{product.productRating}}</b></td>
+              </tr>
+
+              <tr>
+                <td class="title-col">Product Review Count:</td>
+                <td><b>{{product.productReviewCount}}</b></td>
+              </tr>
+
+              <tr>
+                <td colspan="2"><hr /></td>
+              </tr>
+              <tr>
+                <td class="title-col">Positive Reviews:</td>
+                <td><b>{{product.positiveReviews}}</b></td>
+              </tr>
+
+              <tr>
+                <td class="title-col">Neutral Reviews:</td>
+                <td><b>{{product.neutralReviews}}</b></td>
+              </tr>
+
+              <tr>
+                <td class="title-col">Negative Reviews:</td>
+                <td><b>{{product.negativeReviews}}</b></td>
+              </tr>
+
+              <tr>
+                <td class="title-col">Found Review Count:</td>
+                <td><b>{{product.foundReviewCount}}</b></td>
+              </tr>
+
+              <tr>
+                <td class="title-col">Found Review Rating:</td>
+                <td><b>{{product.foundReviewRating}}</b></td>
+              </tr>
+
+              <tr>
+                <td colspan="2"><hr /></td>
+              </tr>
+
+              <tr>
+                <td class="title-col" id="score-label">Trust Worthy Score:</td>
+                <td id="score"><b>{{product.TrustworthyScore}}</b></td>
+              </tr>
+            </table>
+            <a class="btn" href="{{product.productURL}}" target="_blank"
+              >LINK</a
+            >
+          </div>
+          {% endfor %}
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="bottom-container">
+        <br />
+        <a class="footer-link" href="https://www.linkedin.com/">LinkedIn</a>
+        <a class="footer-link" href="https://twitter.com/">Twitter</a>
+        <a class="footer-link" href="https://www.facebook.com/">Facebook</a>
+        <p class="coppywrite">© SE5 SDGP</p>
+      </div>
+    </footer>
+  </body>
+</html>
