@@ -1,4 +1,5 @@
-const chrome = window.chrome;
+/* global chrome */
+
 // let currentUrl = "";
 // let isAllowedSite = false;
 
