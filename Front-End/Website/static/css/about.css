@@ -2,7 +2,7 @@ body {
   background-color: #cbe4de;
   margin: 0;
   text-align: center;
-  font-family: "Merriweather", serif;
+  font-family: 'Merriweather', serif;
 }
 
 .navbar {
@@ -12,7 +12,7 @@ body {
 
 a {
   color: #108e92;
-  font-family: "Montserrat", serif;
+  font-family: 'Montserrat', serif;
   margin: 10px 20px;
   text-decoration: none;
 }
@@ -51,8 +51,8 @@ main {
   border-radius: 15px;
   margin: 10px;
   backdrop-filter: blur(20px);
-  box-shadow: 10px 10px 20px rgba(41, 41, 41, 0.389);
-  border: solid 2px rgba(10, 10, 10, 0);
+  box-shadow: 10px 10px 20px #2929294e;
+  border: solid 2px #0a0a0a;
   background: #587880;
 }
 
@@ -62,31 +62,32 @@ main {
   transform: scale(1.03);
   transition: all 1s ease;
 }
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+
 .card:hover li {
-  color: #ffffff;
+  color: #fff;
 }
 
 .card-image {
   background-color: #a4b3ae4d;
   height: 250px;
   background-size: cover;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 15px;
 }
 
-.person_image {
+.person-image {
   display: block;
   margin: auto;
   width: 90%;
   height: 100%;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0px;
-}
-
-li {
-  margin-bottom: 5px;
 }
 
 .bullet-points li {
@@ -103,7 +104,6 @@ li {
 
 .coppywrite {
   color: #eaf6f6;
-  margin-bottom: 0;
   font-size: 0.75rem;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
 }

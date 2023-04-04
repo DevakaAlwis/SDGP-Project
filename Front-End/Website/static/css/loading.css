@@ -2,7 +2,7 @@ body {
   background-color: #cbe4de;
   margin: 0;
   text-align: center;
-  font-family: "Merriweather", serif;
+  font-family: 'Merriweather', serif;
 }
 
 #loading-container {
@@ -31,7 +31,7 @@ body {
 @keyframes ring {
   0% {
     transform: rotate(0deg);
-    box-shadow: 1px 5px 2px #000000;
+    box-shadow: 1px 5px 2px #000;
   }
 
   50% {
@@ -47,13 +47,13 @@ body {
 
 .ring::before {
   position: absolute;
-  content: "";
+  content: '';
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgb(255, 255, 255, 0.3);
+  box-shadow: 0 0 5px #ffffff4d;
 }
 
 #display-text {

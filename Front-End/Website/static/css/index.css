@@ -2,7 +2,7 @@ body {
   background-color: #cbe4de;
   margin: 0;
   text-align: center;
-  font-family: "Merriweather", serif;
+  font-family: 'Merriweather', serif;
 }
 
 #main-container {
@@ -16,7 +16,7 @@ body {
 
 a {
   color: #108e92;
-  font-family: "Montserrat", serif;
+  font-family: 'Montserrat', serif;
   margin: 10px 20px;
   text-decoration: none;
 }
@@ -27,27 +27,17 @@ a:hover {
 
 .btn {
   background: #11cdd4;
-  background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
-  background-image: -moz-linear-gradient(top, #11cdd4, #11999e);
-  background-image: -ms-linear-gradient(top, #11cdd4, #11999e);
-  background-image: -o-linear-gradient(top, #11cdd4, #11999e);
   background-image: linear-gradient(to bottom, #11cdd4, #11999e);
-  -webkit-border-radius: 7;
-  -moz-border-radius: 7;
   border-radius: 7px;
-  font-family: "Montserrat", serif;
-  color: #ffffff;
+  font-family: 'Montserrat', serif;
+  color: #fff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   text-decoration: none;
 }
 
 .btn:hover {
   background: #30e3cb;
-  background-image: -webkit-linear-gradient(top, #30e3cb, #2bc48d);
-  background-image: -moz-linear-gradient(top, #30e3cb, #2bc48d);
-  background-image: -ms-linear-gradient(top, #30e3cb, #2bc48d);
-  background-image: -o-linear-gradient(top, #30e3cb, #2bc48d);
   background-image: linear-gradient(to bottom, #30e3cb, #2bc48d);
   text-decoration: none;
 }
@@ -66,7 +56,7 @@ a:hover {
 }
 
 .name {
-  color: #ffffff;
+  color: #fff;
 }
 
 .top-sentence {
@@ -100,15 +90,15 @@ a:hover {
 }
 
 h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 4.25rem;
   color: #66bfbf;
-  margin: 50px auto 0 auto;
+  margin: 50px auto 0;
   line-height: 2;
 }
 
 h2 {
-  font-family: "Montserrat", serif;
+  font-family: 'Montserrat', serif;
   font-size: 1.25rem;
   color: #0b1f4d;
   font-weight: normal;
@@ -129,7 +119,7 @@ h3 {
 hr {
   border: dotted;
   border-bottom: none;
-  color: rgb(0, 0, 0);
+  color: #000;
   width: 4%;
   margin: 50px auto;
 }
@@ -141,14 +131,14 @@ hr {
 
 .skill-row {
   width: 50%;
-  margin: 50px auto 50px auto;
+  margin: 50px auto;
   text-align: left;
   line-height: 2;
 }
 
 .advanced-detection {
   width: 25%;
-  margin: auto 0 auto 0;
+  margin: auto 0;
   float: left;
   margin-right: 30px;
 }
@@ -178,9 +168,8 @@ hr {
 
 .coppywrite {
   color: #eaf6f6;
-  margin-bottom: 0;
   font-size: 0.75rem;
-  margin: 20px 0;
+  margin: 20px 0 0 0;
 }
 
 #loading-container {
@@ -209,7 +198,7 @@ hr {
 @keyframes ring {
   0% {
     transform: rotate(0deg);
-    box-shadow: 1px 5px 2px #000000;
+    box-shadow: 1px 5px 2px #000;
   }
 
   50% {
@@ -225,19 +214,19 @@ hr {
 
 .ring::before {
   position: absolute;
-  content: "";
+  content: '';
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgb(255, 255, 255, 0.3);
+  box-shadow: 0 0 5px #ffffff4d;
 }
 
 #display-text {
   color: #737373;
   font-size: 20px;
-  font-family: "Montserrat", serif;
+  font-family: 'Montserrat', serif;
   letter-spacing: 1px;
   line-height: 200px;
   animation: text 3s ease-in-out infinite;
