@@ -14,9 +14,4 @@ jobs:
         uses: github/super-linter@v4
         env:
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Run Chrome extension
-        uses: yuhui-lin/run-chrome-extension@v1
-        env:
-          webextensions: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
