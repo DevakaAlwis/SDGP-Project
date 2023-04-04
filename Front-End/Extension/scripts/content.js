@@ -1,34 +1,35 @@
+/* global chrome */
 // Check if the current page is an Amazon or walmart product page
 if (isAmazonProductPage() || isWalmartProductPage()) {
-  const product_name = getProductName() // Get the product name
-  const product_id = getProductId() // Get the product id
-  const product_image = getProductImage() // Get the product Image URL
-  const product_price = getProductPrice() // Get the product Price
-  const product_site_name = getProductSiteName() // Get the prodict site name
-  const product_rating = getProductRating() // Get the product rating
-  const product_review_count = getProductReviewCount() // Get the product review count
-  const product_url = getProductURL() // Get the product URL
+  const productNameV = getProductName() // Get the product name
+  const productIdV = getProductId() // Get the product id
+  const productImageV = getProductImage() // Get the product Image URL
+  const productPriceV = getProductPrice() // Get the product Price
+  const productSiteNameV = getProductSiteName() // Get the prodict site name
+  const productRatingV = getProductRating() // Get the product rating
+  const productReviewCountV = getProductReviewCount() // Get the product review count
+  const productURLV = getProductURL() // Get the product URL
   console.log(
-    product_name,
-    product_id,
-    product_image,
-    product_price,
-    product_site_name,
-    product_rating,
-    product_review_count,
-    product_url
+    productNameV,
+    productIdV,
+    productImageV,
+    productPriceV,
+    productSiteNameV,
+    productRatingV,
+    productReviewCountV,
+    productURLV
   ) // Print the details in the console log
   // Display the product information in the extension popup
   chrome.runtime.sendMessage({
     type: 'PRODUCT_INFO',
-    productId: product_id,
-    productName: product_name,
-    productImage: product_image,
-    productPrice: product_price,
-    productSiteName: product_site_name,
-    productRating: product_rating,
-    productReviewCount: product_review_count,
-    productURL: product_url
+    productId: productIdV,
+    productName: productNameV,
+    productImage: productImageV,
+    productPrice: productPriceV,
+    productSiteName: productSiteNameV,
+    productRating: productRatingV,
+    productReviewCount: productReviewCountV,
+    productURL: productURLV
   })
 }
 
@@ -80,11 +81,11 @@ function getProductName () {
 
 // Function to get the product ID from the page
 function getProductId () {
-  let productId = '';
+  let productId = ''
   // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     const asinRegex = /dp\/(\w{10})/ // regular expression for get the asin value
-    const matches = asinRegex.exec(window.location.href); // match the value and save it
+    const matches = asinRegex.exec(window.location.href) // match the value and save it
     productId = matches[1]
     // Check  if it is a walmart page
   } else if (isWalmartProductPage()) {
@@ -168,7 +169,7 @@ function getProductSiteName () {
 
 // Function to get the product Rating from the page
 function getProductRating () {
-  let productRating = '';
+  let productRating = ''
   // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     const titleElement = document.querySelector('#acrPopover') // Get the product rating element
@@ -203,7 +204,7 @@ function getProductReviewCount () {
     }
     // Check  if it is a walmart page
   } else if (isWalmartProductPage()) {
-    const script = document.querySelector('#__NEXT_DATA__'); // Get the json script
+    const script = document.querySelector('#__NEXT_DATA__') // Get the json script
     const json = JSON.parse(script.textContent)
     // Check if the review count is exists
     if (json.props.pageProps.initialData.data.reviews.totalReviewCount) {
@@ -216,7 +217,7 @@ function getProductReviewCount () {
 
 // Function to get the product URL from the page
 function getProductURL () {
-  let productURL = '';
+  let productURL = ''
   // Check  if it is an amazon page
   if (isAmazonProductPage()) {
     const currentUrl = window.location.href
