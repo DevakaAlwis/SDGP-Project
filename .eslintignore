@@ -4,9 +4,3 @@
   "es6": true,
   "webextensions": true
 },
-
-{
-  "globals": {
-    "chrome": true
-  }
-}
