@@ -5,7 +5,7 @@ body {
   background-size: cover;
   margin: 0;
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: Merriweather, serif;
 }
 
 .navbar {
@@ -15,7 +15,7 @@ body {
 
 a {
   color: #108e92;
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
   margin: 10px 20px;
   text-decoration: none;
 }
@@ -94,7 +94,7 @@ td {
   margin-top: 5px;
   margin-bottom: 10px;
   color: #050200;
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
 }
 
 .card:hover td {
@@ -120,14 +120,14 @@ td {
   height: 40px;
 }
 
-#score-label{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+#score-label {
+  font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
   font-weight: 500;
   font-size: 18px;
 }
 
 #score{
-  font-family: 'Merriweather', serif;
+  font-family: Merriweather, serif;
   font-size: 18px;
 }
 
@@ -147,8 +147,8 @@ td {
   cursor: pointer;
   transform: scale(1.03);
   transition: all 1s ease;  
-  
 }
+
 .card:hover li {
   color: #fff;
 }
@@ -169,7 +169,7 @@ hr {
   background: #11cdd4;
   background-image: linear-gradient(to bottom, #012b47, #11999e);
   border-radius: 7px;
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
   color: #fff;
   font-size: 20px;
   height: 40px;
@@ -178,7 +178,7 @@ hr {
 
 .btn:hover {
   background: #30e3cb;
-  background-image: linear-gradient(to bottom, #a2e0d8, #3B5E71);
+  background-image: linear-gradient(to bottom, #a2e0d8, #3b5e71);
   text-decoration: none;
 }
 

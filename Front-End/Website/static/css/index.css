@@ -2,7 +2,7 @@ body {
   background-color: #cbe4de;
   margin: 0;
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: Merriweather, serif;
 }
 
 #main-container {
@@ -16,7 +16,7 @@ body {
 
 a {
   color: #108e92;
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
   margin: 10px 20px;
   text-decoration: none;
 }
@@ -29,7 +29,7 @@ a:hover {
   background: #11cdd4;
   background-image: linear-gradient(to bottom, #11cdd4, #11999e);
   border-radius: 7px;
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
   color: #fff;
   font-size: 20px;
   padding: 10px 20px;
@@ -90,7 +90,7 @@ a:hover {
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 4.25rem;
   color: #66bfbf;
   margin: 50px auto 0;
@@ -98,7 +98,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
   font-size: 1.25rem;
   color: #0b1f4d;
   font-weight: normal;
@@ -169,7 +169,7 @@ hr {
 .coppywrite {
   color: #eaf6f6;
   font-size: 0.75rem;
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
 }
 
 #loading-container {
@@ -214,7 +214,7 @@ hr {
 
 .ring::before {
   position: absolute;
-  content: '';
+  content: "";
   left: 0;
   top: 0;
   height: 100%;
@@ -226,7 +226,7 @@ hr {
 #display-text {
   color: #737373;
   font-size: 20px;
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
   letter-spacing: 1px;
   line-height: 200px;
   animation: text 3s ease-in-out infinite;
