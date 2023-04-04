@@ -1,3 +1,4 @@
+/* global chrome */
 // Check if the current page is an Amazon or walmart product page
 if (isAmazonProductPage() || isWalmartProductPage()) {
   const productNameV = getProductName() // Get the product name
