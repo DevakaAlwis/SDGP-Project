@@ -38,7 +38,7 @@ chrome.storage.local.get(
     const productURLEl = document.getElementById('product-url')
 
     // put the data in the relavent positions
-    const imageURL = result.productImage 
+    const imageURL = result.productImage
     productImageEl.src = imageURL
     productNameEl.innerText = result.productName
     productIdEl.innerText = result.productId
