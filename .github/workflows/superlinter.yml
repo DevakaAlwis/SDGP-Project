@@ -15,10 +15,5 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          eslint: true
-          
-eslint:
-    env:
-        browser: true
-        webextensions: true
+
     
