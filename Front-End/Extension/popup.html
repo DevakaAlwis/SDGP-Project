@@ -5,21 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/popup.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
     <title>ProRev Analyzer</title>
   </head>
 
-  <body class="background">
+  <body>
     <div id="product-details-container">
       <!-- title container -->
       <div id="title-container">
         <table>
           <tr>
             <td id="title-image-container">
-              <img
-                id="title-image"
-                src="images/logo-128.png"
-                alt="logo image"
-              />
+              <img id="title-image" src="images/logo-128.png" alt="logo image" />
             </td>
             <td id="title-name-container">
               <h1>ProRev Analyzer</h1>
@@ -30,7 +30,7 @@
 
       <!-- display product details -->
       <div id="main-container">
-        <div>
+        <div id="product-top-container">
           <table>
             <tr>
               <td>
@@ -44,22 +44,39 @@
             </tr>
           </table>
         </div>
+        
         <div id="content-container">
-          <hr />
-          <p>&#127919; Product ID : <span id="product-id"></span></p>
-          <p>&#127919; Product Price : <span id="product-price"></span></p>
-          <p>&#127919; Product Site Name : <span id="product-site"></span></p>
-          <p>&#127919; Product Rating : <span id="product-rating"></span></p>
-          <p>
-            &#127919; Product Review Count :
-            <span id="product-number-of-reviews"></span>
-          </p>
-          <p>
-            &#127919; Product URL :
-            <span> <a id="product-url" href="#" target="_blank"></a></span>
-          </p>
+          <table>
+            <tr>
+              <td>Product ID :</td>
+              <td><span id="product-id"></span></td>
+            </tr>
+            <tr>
+              <td>Product Price :</td>
+              <td><span id="product-price"></span></td>
+            </tr>
+            <tr>
+              <td>Product Site Name :</td>
+              <td><span id="product-site"></span></td>
+            </tr>
+            <tr>
+              <td>Product Rating :</td>
+              <td><span id="product-rating"></span></td>
+            </tr>
+            <tr>
+              <td>Product Review Count :</td>
+              <td><span id="product-number-of-reviews"></span></td>
+            </tr>
+            <tr>
+              <td>Product URL :</td>
+              <td>
+                <span> <a id="product-url" href="" target="_blank"></a> </span>
+              </td>
+            </tr>
+          </table>
+
           <div class="cbutton">
-            <button id="page-button">View Similar Products</button>
+            <button class="btn" id="page-button">View Similar Products</button>
           </div>
         </div>
       </div>

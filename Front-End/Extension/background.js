@@ -3,7 +3,7 @@
 
 // Listen for messages from content scripts
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.type === "PRODUCT_INFO") {
+  if (message.type === 'PRODUCT_INFO') {
     // Save the product information to storage
     chrome.storage.local.set({
       productName: message.productName,
@@ -13,10 +13,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
       productSiteName: message.productSiteName,
       productRating: message.productRating,
       productReviewCount: message.productReviewCount,
-      productURL: message.productURL,
-    });
+      productURL: message.productURL
+    })
 
     // Show the extension popup
-    chrome.action.setPopup({ popup: "popup.html" });
+    chrome.action.setPopup({ popup: 'popup.html' })
   }
-});
+})
