@@ -1,3 +1,4 @@
+/* global chrome */
 // check for current page is amazon product page or walmart product page to display the relevent div tags
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const currentTab = tabs[0]
