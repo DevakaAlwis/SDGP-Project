@@ -1,75 +1,75 @@
-body{
-    background-color: #cbe4de;
-    margin: 0;
-    text-align: center;
-    font-family: "Merriweather",serif;
+body {
+  background-color: #cbe4de;
+  margin: 0;
+  text-align: center;
+  font-family: Merriweather, serif;
 }
 
-#loading-container{
-    background-image: linear-gradient(to top, #0e8488d9 10%, #cbe4de 100%);
-    display: block;
-    width: 100%;
-    height: 100%;
+#loading-container {
+  background-image: linear-gradient(to top, #0e8488d9 10%, #cbe4de 100%);
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.center{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+.center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.ring{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    animation: ring 2s linear infinite;
+.ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: ring 2s linear infinite;
 }
 
-@keyframes ring{
-    0%{
-        transform: rotate(0deg);
-        box-shadow: 1px 5px 2px #000000;
-    }
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px #000;
+  }
 
-    50%{
-        transform: rotate(180deg);
-        box-shadow: 1px 5px 2px #136b67;
-    }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px #136b67;
+  }
 
-    100%{
-        transform: rotate(350deg);
-        box-shadow: 1px 5px 2px #042b42;
-    }
+  100% {
+    transform: rotate(350deg);
+    box-shadow: 1px 5px 2px #042b42;
+  }
 }
 
-.ring::before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgb(255, 255, 255, 0.3);
+.ring::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ffffff4d;
 }
 
-#display-text{
+#display-text {
+  color: #737373;
+  font-size: 22px;
+  letter-spacing: 1px;
+  line-height: 200px;
+  animation: text 3s ease-in-out infinite;
+}
+
+@keyframes text {
+  50% {
+    color: #062850;
+  }
+
+  100% {
     color: #737373;
-    font-size: 20px;
-    letter-spacing: 1px;
-    line-height: 200px;
-    animation: text 3s ease-in-out infinite;
-}
-
-@keyframes text{
-    50%{
-        color: #062850;
-    }
-
-    100% {
-        color: #737373;
-    }
+  }
 }
