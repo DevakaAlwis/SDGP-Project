@@ -33,8 +33,7 @@ class WalmartSpider(scrapy.Spider):
                 "page": 1,
                 "affinityOverride": "default",
             }
-            walmart_search_url = "https://www.walmart.com/search?" + \
-                urlencode(payload)
+            walmart_search_url = "https://www.walmart.com/search?" + urlencode(payload)
             yield scrapy.Request(
                 url=walmart_search_url,
                 callback=self.parse,
@@ -43,8 +42,7 @@ class WalmartSpider(scrapy.Spider):
 
     # function to get product details
     def parse(self, response):
-        script_tag = response.xpath(
-            '//script[@id="__NEXT_DATA__"]/text()').get()
+        script_tag = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
         if script_tag is not None:
             json_blob = json.loads(script_tag)
 
@@ -69,13 +67,11 @@ class WalmartSpider(scrapy.Spider):
                             "https://www.walmart.com/", relative_url
                         ).split("?")[0]
                         item["productSiteName"] = "Walmart"
-                        item["productRating"] = product["rating"].get(
-                            "averageRating")
+                        item["productRating"] = product["rating"].get("averageRating")
                         item["productReviewCount"] = product["rating"].get(
                             "numberOfReviews"
                         )
-                        item["productImage"] = product["imageInfo"].get(
-                            "thumbnailUrl")
+                        item["productImage"] = product["imageInfo"].get("thumbnailUrl")
 
                         # yield{
                         #     'productID': product.get('id'),
