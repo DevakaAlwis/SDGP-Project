@@ -2,7 +2,7 @@ body {
   background-color: #cbe4de;
   margin: 0;
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: Merriweather, serif;
 }
 
 #loading-container {
@@ -47,7 +47,7 @@ body {
 
 .ring::before {
   position: absolute;
-  content: '';
+  content: "";
   left: 0;
   top: 0;
   height: 100%;
