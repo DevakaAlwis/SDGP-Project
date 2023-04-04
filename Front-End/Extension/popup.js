@@ -1,3 +1,4 @@
+/* global chrome */
 // check for current page is amazon product page or walmart product page to display the relevent div tags
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const currentTab = tabs[0]
@@ -38,7 +39,7 @@ chrome.storage.local.get(
     const productURLEl = document.getElementById('product-url')
 
     // put the data in the relavent positions
-    const imageURL = result.productImage 
+    const imageURL = result.productImage
     productImageEl.src = imageURL
     productNameEl.innerText = result.productName
     productIdEl.innerText = result.productId

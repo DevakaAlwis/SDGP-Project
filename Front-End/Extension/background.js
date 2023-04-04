@@ -1,3 +1,5 @@
+/* global chrome */
+
 // let currentUrl = "";
 // let isAllowedSite = false;
 
