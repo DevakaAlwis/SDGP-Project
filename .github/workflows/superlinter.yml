@@ -15,6 +15,5 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          # Add the following line to include the additional rule in ESLint
-          eslint_additional_args: "--no-ignore --ignore-path .gitignore --ext .js --rule 'no-undef: [2, { \"vars\": \"all\", \"args\": \"after-used\", \"ignoreRestSiblings\": false, \"varsIgnorePattern\": \"chrome\" }]'"
+
+# Reference: https://www.youtube.com/watch?v=mFFXuXjVgkU
