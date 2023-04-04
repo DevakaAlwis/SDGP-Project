@@ -4,7 +4,7 @@ body {
   background-image: linear-gradient(to top, #0e8488d9 0%, #cbe4de 100%);
   width: 100%;
   height: 100%;
-  font-family: "Merriweather", serif;
+  font-family: Merriweather, serif;
   color: #2e4f4f;
 }
 
@@ -40,7 +40,7 @@ h1 {
   font-size: 30px;
   color: #2e4f4f;
   margin: auto;
-  font-family: "Montserrat", serif;
+  font-family: Montserrat, serif;
 }
 
 #main-container {
@@ -55,12 +55,12 @@ h1 {
   width: 100%;
   padding: 10px;
   padding-bottom: 25px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 10px;
 }
 
 #content-container {
-  background-color: #ffffff;
+  background-color: #fff;
   display: block;
   width: 420px;
   height: 250px;
@@ -82,11 +82,7 @@ h1 {
 #heading {
   font-size: 30px;
   color: #2e4f4f;
-  font-family: "Montserrat", serif;
-}
-
-#other-container p {
-  font-size: 15px;
+  font-family: Montserrat, serif;
 }
 
 /* Style for the product image */
@@ -106,7 +102,7 @@ h1 {
 }
 
 #product-name {
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
 }
 
@@ -136,24 +132,23 @@ td span {
   font-weight: bold;
 }
 
+#other-container p {
+  font-size: 15px;
+}
+
 .cbutton {
   text-align: center;
 }
 
 .btn {
   border: none;
-  -webkit-border-radius: 7;
-  -moz-border-radius: 7;
   border-radius: 7px;
-  font-family: "Montserrat", serif;
-  color: #ffffff;
+  font-family: Montserrat, serif;
+  color: #fff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   margin-top: 20px;
   text-decoration: none;
-  background: -webkit-linear-gradient(-45deg, #30e3cb, #11cdd4, #11999e, #02afe7);
-  background: -moz-linear-gradient(-45deg, #30e3cb, #11cdd4, #11999e, #02afe7);
-  background: -o-linear-gradient(-45deg, #30e3cb, #11cdd4, #11999e, #02afe7);
   background: linear-gradient(-45deg, #30e3cb, #11cdd4, #11999e, #02afe7);
   background-size: 600%;
   animation: anime 5s linear infinite;
@@ -163,19 +158,18 @@ td span {
   0% {
     background-position: 0% 50%;
   }
+  
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
+
 .btn:hover {
   background: #30e3cb;
-  background-image: -webkit-linear-gradient(top, #30e3cb, #2bc48d);
-  background-image: -moz-linear-gradient(top, #30e3cb, #2bc48d);
-  background-image: -ms-linear-gradient(top, #30e3cb, #2bc48d);
-  background-image: -o-linear-gradient(top, #30e3cb, #2bc48d);
   background-image: linear-gradient(to bottom, #30e3cb, #2bc48d);
   text-decoration: none;
 }
@@ -248,7 +242,7 @@ a:hover {
 #display-text {
   color: #737373;
   font-size: 20px;
-  font-family: "Montserrat", serif;
+  font-family: Montserrat, serif;
   letter-spacing: 1px;
   line-height: 200px;
   animation: text 3s ease-in-out infinite;
