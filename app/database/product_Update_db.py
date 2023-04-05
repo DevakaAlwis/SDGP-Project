@@ -104,4 +104,7 @@ def updateSentimentLabels(reviews_collection, product_collection):
     return statement
 
 
-# updateSentimentLabels()
+# (search_collection,reviews_collection,products_collection,amazon_reviews_collection,amazon_products_collection,walmart_reviews_collection,walmart_products_collection)=database_connection.databaseConnection()
+
+# result=updateSentimentLabels(reviews_collection,products_collection)
+# print(result)

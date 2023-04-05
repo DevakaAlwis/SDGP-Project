@@ -17,8 +17,8 @@ def runSentimentLabelModel(reviews_collection):
     load = False
     try:
         # loading sentiment model and vectorizer
-        loaded_svm_model = joblib.load("sentimentLabel_svmModel.sav")
-        loaded_vectorizer = joblib.load("sentimentVectorizer.pk1")
+        loaded_svm_model = joblib.load("model/sentimentLabel_svmModel.sav")
+        loaded_vectorizer = joblib.load("model/sentimentVectorizer.pk1")
         statement = "Sentiment label model loaded successfully."
         load = True
     except FileNotFoundError:
