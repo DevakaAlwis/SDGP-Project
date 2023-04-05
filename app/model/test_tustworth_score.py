@@ -68,5 +68,6 @@ class TestrunTrustWorthyScoreModel(unittest.TestCase):
             except WriteError as e:
                 self.fail(f"An error occured while reading data from collection {e}")
 
+
 if __name__ == "__main__":
     unittest.main()
