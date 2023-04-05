@@ -1,7 +1,7 @@
-from sentiment_label import runSentimentLabelModel
-from pymongo.errors import WriteError
-from unittest.mock import patch, Mock
 import unittest
+from unittest.mock import patch, Mock
+
+from sentiment_label import runSentimentLabelModel
 
 
 class TestrunSentimentLabelModel(unittest.TestCase):
@@ -14,17 +14,16 @@ class TestrunSentimentLabelModel(unittest.TestCase):
     def test_collection_empty(self):
         self.reviews_collection.count_documents.return_value = 0
         output = runSentimentLabelModel(self.reviews_collection)
-        self.assertEqual(output, 'No reviews found in the collection')
+        self.assertEqual(output, "No reviews found in the collection")
 
     # test function to test model load failure
 
     def test_model_load_fail(self):
-        with patch('joblib.load', side_effect=FileNotFoundError('Model not found')):
+        with patch("joblib.load", side_effect=FileNotFoundError("Model not found")):
             # calling the function that is tested
-            output = runSentimentLabelModel(
-                self.reviews_collection)
+            output = runSentimentLabelModel(self.reviews_collection)
             # asserting the function returns ecpected result
-            self.assertEqual(output, 'Unable to load model.')
+            self.assertEqual(output, "Unable to load model.")
 
     # test function that test if correct messege is given when product update is empty
 
@@ -32,13 +31,10 @@ class TestrunSentimentLabelModel(unittest.TestCase):
     #     self.reviews_collection.count_documents.return_value = 1
     #     self.reviews_collection.find.return_value = [
     #         {'_id': '1', 'reviewText': 'This is a great product.'}]
-    #     self.reviews_collection.update_one.side_effect = WriteError(
-    #         'Update failed')
+    #     self.reviews_collection.update_one.side_effect = WriteError('Update failed')
     #     result = runSentimentLabelModel(self.reviews_collection)
-    #     self.assertEqual(
-    #         result, ' An error ocured while updating the database, 0 errors.'
-    #     )
+    #     self.assertEqual(result, ' An error ocured while updating the database, 0 errors.')
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
