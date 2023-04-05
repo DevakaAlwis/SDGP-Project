@@ -2,7 +2,7 @@
 2nd Year Software Development GroupProject 2022/2023
 
 ## Project Name: ProRev-Analyzer
-# Description
+## Description
 An extension and a web application that allow users to compare e-commerce sites (Amazon and Walmart) products with reviews rating and provide a reputable trustworthy score with a product summary feedback (number of positive, negative, neutral reviews) so that the customer can decided which product is suitable to him/her.
 
 The Application use scraping technic to data gather and processed through two machine learning models, which gives a sentiment label for each product review using SVC Linear Classifier Analgorithm and combine all the reviews for a particular product and give a overall trustworthy score using the Random Forest Regrassion.
@@ -26,8 +26,8 @@ pip install -r requirements.txt
 ### 👉 Start the App
 
 ```bash
-$ cd app    #move to the app folder
-$ python app.py
+cd app    #move to the app folder
+python app.py
 ```
 
 ### 👉 Adding the Extension
@@ -61,11 +61,11 @@ Loading page - loading.html
 About us page - about.html
 Similar products page - page.html
 
-# Note
+### Note
 It will take some time to gather data and process and display.
-#### When using extension after clicking the 'view similar products' button DON'T move to a new page or a browser the similar product page WILL NOT be loaded. but the process will be happening in the backend. You can see the output once the backend process is done. and by going to the  http://127.0.0.1:5000/page
+#### When using extension after clicking the 'view similar products' button DON'T move to a new page or a browser the similar product page WILL NOT be loaded. but the process will be happening in the backend. You can see the output once the backend process is done. and by going to the  "http://127.0.0.1:5000/page"
 
-# Similar products page
+## Similar products page
 "http://127.0.0.1:5000/page"
 about link will be the similar products page
 
