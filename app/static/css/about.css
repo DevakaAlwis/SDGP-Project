@@ -1,0 +1,108 @@
+body {
+  background-color: #cbe4de;
+  margin: 0;
+  text-align: center;
+  font-family: Merriweather, serif;
+}
+
+.navbar {
+  display: inline-block;
+  width: 100%;
+}
+
+a {
+  color: #108e92;
+  font-family: Montserrat, serif;
+  margin: 10px 20px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #eaf6f6;
+}
+
+#main-container {
+  background-image: linear-gradient(to top, #0e8488d9 0%, #cbe4de 100%);
+  position: relative;
+}
+
+h3 {
+  color: #2e4f4f;
+  text-align: center;
+  padding-top: 50px;
+  font-family: BD-Light, sans-serif;
+}
+
+main {
+  padding-top: 40px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding-bottom: 100px;
+}
+
+.card {
+  padding: 20px;
+  width: 250px;
+  height: 450px;
+  border-radius: 15px;
+  margin: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 10px 10px 20px #2929294e;
+  border: solid 2px #0a0a0a;
+  background: #587880;
+}
+
+.card:hover {
+  background-color: #2e4f4f;
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 1s ease;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.bullet-points li {
+  margin-bottom: 1.5rem;
+  color: #050200;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.card:hover li {
+  color: #fff;
+}
+
+.card-image {
+  background-color: #a4b3ae4d;
+  height: 250px;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.person-image {
+  display: block;
+  margin: auto;
+  width: 90%;
+  height: 100%;
+}
+
+.bottom-container {
+  background-color: #2e4f4f;
+  height: 110px;
+}
+
+.coppywrite {
+  color: #eaf6f6;
+  font-size: 0.75rem;
+  margin: 10px 0 0;
+}
