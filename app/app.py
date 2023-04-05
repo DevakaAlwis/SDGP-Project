@@ -1,27 +1,26 @@
 import subprocess
 
-import pymongo
-from database import database_connection,merging_collections,product_Update_db
-from flask import Flask, render_template, redirect, url_for, request, jsonify
-from model import sentiment_label,trustworth_score
+from database import database_connection, merging_collections, product_Update_db
+from flask import Flask, render_template, request
+from model import sentiment_label, trustworth_score
 
 app = Flask(__name__)
 
 
 # route for the index page
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 
 # route for about page
-@app.route('/about')
+@app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template("about.html")
 
 
 # route for the page page
-@app.route('/page')
+@app.route("/page")
 def page():
     (
         search_collection,
@@ -30,19 +29,18 @@ def page():
         amazon_reviews_collection,
         amazon_products_collection,
         walmart_reviews_collection,
-        walmart_products_collection
+        walmart_products_collection,
     ) = database_connection.databaseConnection()
     products = products_collection.find()
-    return render_template('page.html',products=products)
+    return render_template("page.html", products=products)
 
 
 # route for the findProducts page when Extension button clicked
-@app.route('/findProducts' , methods=["POST","GET"])
+@app.route("/findProducts", methods=["POST", "GET"])
 def findProducts():
 
     product = request.json  # access the request body and make it a python dictonary
     searchName = product["name"]
-    searchProductId = product["id"]
 
     # call the dataconnection function to get the db connection
     (
@@ -52,7 +50,7 @@ def findProducts():
         amazon_reviews_collection,
         amazon_products_collection,
         walmart_reviews_collection,
-        walmart_products_collection
+        walmart_products_collection,
     ) = database_connection.databaseConnection()
 
     # delete previous collections
@@ -63,11 +61,11 @@ def findProducts():
         amazon_reviews_collection,
         amazon_products_collection,
         walmart_reviews_collection,
-        walmart_products_collection
+        walmart_products_collection,
     )
 
     # insert extension gathered product
-    search_collection.insert_one({'productName':searchName})
+    search_collection.insert_one({"productName": searchName})
 
     # call the process function to do the back-end part
     process(
@@ -77,20 +75,20 @@ def findProducts():
         amazon_reviews_collection,
         amazon_products_collection,
         walmart_reviews_collection,
-        walmart_products_collection
+        walmart_products_collection,
     )
     products = products_collection.find()
 
-    return render_template('page.html',products=products)
+    return render_template("page.html",products=products)
 
 
 # route for the search page when website keyword is searched
-@app.route('/search', methods=['POST'])
+@app.route("/search", methods=["POST"])
 def search():
 
-    keyword = request.form.get('search-keyword')
-    if(keyword == ""):
-        return render_template('index.html')
+    keyword = request.form.get("search-keyword")
+    if keyword == "":
+        return render_template("index.html")
     
     # call the dataconnection function to get the db connection
     (
@@ -100,7 +98,7 @@ def search():
         amazon_reviews_collection,
         amazon_products_collection,
         walmart_reviews_collection,
-        walmart_products_collection
+        walmart_products_collection,
     ) = database_connection.databaseConnection()
     
     # delete previous collections
@@ -111,11 +109,11 @@ def search():
         amazon_reviews_collection,
         amazon_products_collection,
         walmart_reviews_collection,
-        walmart_products_collection
+        walmart_products_collection,
     )
 
     # insert searched product
-    search_collection.insert_one({'productName':keyword})
+    search_collection.insert_one({"productName": keyword})
 
     # call the process function to do the back-end part
     process(
@@ -125,11 +123,11 @@ def search():
         amazon_reviews_collection,
         amazon_products_collection,
         walmart_reviews_collection,
-        walmart_products_collection
+        walmart_products_collection,
     )
     products = products_collection.find()
 
-    return render_template('page.html', products=products)
+    return render_template("page.html", products=products)
 
 
 # function to remove the existing collections from the database
@@ -140,7 +138,7 @@ def removeCollections(
     amazon_reviews_collection,
     amazon_products_collection,
     walmart_reviews_collection,
-    walmart_products_collection
+    walmart_products_collection,
 ):
     # delete previous collections
     search_collection.drop()
@@ -160,10 +158,10 @@ def process(
     amazon_reviews_collection,
     amazon_products_collection,
     walmart_reviews_collection,
-    walmart_products_collection
+    walmart_products_collection,
 ):
     # scrape the products
-    # list of search spiders 
+    # list of search spiders
     spiders = ["amazon_search", "walmart_search"]
     # list of processes
     processes = []
@@ -180,7 +178,7 @@ def process(
         process.wait()
 
     # scrape the reviews
-    # list of review spiders 
+    # list of review spiders
     spiders = ["amazon_reviews", "walmart_reviews"]
     # list of processes
     processes = []
@@ -198,14 +196,10 @@ def process(
 
     # merging the product and reviews seperatly
     merging_collections.mergingProducts(
-        products_collection,
-        amazon_products_collection,
-        walmart_products_collection
+        products_collection, amazon_products_collection, walmart_products_collection
     )
     merging_collections.mergingProducts(
-        reviews_collection,
-        amazon_reviews_collection,
-        walmart_reviews_collection
+        reviews_collection, amazon_reviews_collection, walmart_reviews_collection
     )
     
     # call the runSentimentLabelModel to get the sentiment label
@@ -217,14 +211,14 @@ def process(
     )
     print(result)
     # call the runTrustWorthyScoreModel to get the trustworth score
-    result=trustworth_score.runTrustWorthyScoreModel(products_collection)
+    result = trustworth_score.runTrustWorthyScoreModel(products_collection)
     print(result)
 
     # return redirect(url_for('page'))
-  
+
     # return url_for(scrapeProducts)
     # return jsonify({'message': "JSON recived"}),200
 
 
-if(__name__=="__main__"):
+if __name__ == "__main__":
     app.run()
