@@ -1,11 +1,10 @@
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
 from sentiment_label import runSentimentLabelModel
 
 
 class TestrunSentimentLabelModel(unittest.TestCase):
-
     def setUp(self):
         self.reviews_collection = Mock()
 

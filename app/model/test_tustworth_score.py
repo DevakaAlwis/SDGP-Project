@@ -16,7 +16,7 @@ class TestrunTrustWorthyScoreModel(unittest.TestCase):
             "foundReviewCount": 10,
             "positiveReviews": 8,
             "neutralReviews": 1,
-            "negativeReviews": 1
+            "negativeReviews": 1,
         }
 
         # creating a mock product collection
@@ -47,14 +47,14 @@ class TestrunTrustWorthyScoreModel(unittest.TestCase):
                 break
             trustworth_score = 0
             # if the review count is 0 trustworthscore is 0
-            if (reviewCount != 0):
+            if reviewCount != 0:
                 features = [
                     [
                         product["foundReviewRating"],
-                        product['foundReviewCount'],
+                        product["foundReviewCount"],
                         product["positiveReviews"],
-                        product['neutralReviews'],
-                        product['negativeReviews'],
+                        product["neutralReviews"],
+                        product["negativeReviews"],
                     ]
                 ]
                 trustworth_score = loaded_rf_model.predict(features)
@@ -63,7 +63,7 @@ class TestrunTrustWorthyScoreModel(unittest.TestCase):
             self.assertLessEqual(trustworth_score, 100)
             try:
                 self.product_collection.update_one(
-                    {"_id": item_id}, {'$set': {"TrustworthyScore": trustworth_score}}
+                    {"_id": item_id}, {"$set": {"TrustworthyScore": trustworth_score}}
                 )
             except WriteError as e:
                 self.fail(
