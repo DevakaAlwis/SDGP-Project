@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
 import joblib
 import numpy as np
@@ -66,9 +66,7 @@ class TestrunTrustWorthyScoreModel(unittest.TestCase):
                     {"_id": item_id}, {"$set": {"TrustworthyScore": trustworth_score}}
                 )
             except WriteError as e:
-                self.fail(
-                    f"An error occured while reading data from collection {e}")
-
+                self.fail(f"An error occured while reading data from collection {e}")
 
 if __name__ == "__main__":
     unittest.main()
