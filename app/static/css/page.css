@@ -168,8 +168,6 @@ hr {
 
 .btn {
   border: none;
-  background: #11cdd4;
-  background-image: linear-gradient(to bottom, #11cdd4, #11999e);
   border-radius: 7px;
   font-family: Montserrat, serif;
   color: #fff;
@@ -213,10 +211,10 @@ h3 {
   background-color: #2e4f4f;
   height: 100px;
   text-align: center;
-  font-size: 16px
+  font-size: 16px;
 }
 
-.footer-link{
+.footer-link {
   text-align: center;
   font-family: BD-Light, sans-serif;
   text-decoration: none;

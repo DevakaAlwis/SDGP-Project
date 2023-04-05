@@ -41,7 +41,7 @@ chrome.storage.local.get(
     // put the data in the relavent positions
     const imageURL = result.productImage
     productImageEl.src = imageURL
-    productNameEl.innerText = result.productName.substring(0, 180) + "..."
+    productNameEl.innerText = result.productName.substring(0, 180) + '...'
     productIdEl.innerText = result.productId
     productPriceEl.innerText = result.productPrice
     productSiteNameEl.innerText = result.productSiteName
