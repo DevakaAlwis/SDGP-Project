@@ -79,7 +79,7 @@ def findProducts():
     )
     products = products_collection.find()
 
-    return render_template("page.html",products=products)
+    return render_template("page.html", products=products)
 
 
 # route for the search page when website keyword is searched
@@ -89,7 +89,7 @@ def search():
     keyword = request.form.get("search-keyword")
     if keyword == "":
         return render_template("index.html")
-    
+
     # call the dataconnection function to get the db connection
     (
         search_collection,
@@ -100,7 +100,7 @@ def search():
         walmart_reviews_collection,
         walmart_products_collection,
     ) = database_connection.databaseConnection()
-    
+
     # delete previous collections
     removeCollections(
         search_collection,
@@ -201,7 +201,7 @@ def process(
     merging_collections.mergingProducts(
         reviews_collection, amazon_reviews_collection, walmart_reviews_collection
     )
-    
+
     # call the runSentimentLabelModel to get the sentiment label
     result = sentiment_label.runSentimentLabelModel(reviews_collection)
     print(result)
