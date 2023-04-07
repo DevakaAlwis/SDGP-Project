@@ -198,7 +198,7 @@ def process(
     merging_collections.mergingProducts(
         products_collection, amazon_products_collection, walmart_products_collection
     )
-    merging_collections.mergingProducts(
+    merging_collections.mergingReviews(
         reviews_collection, amazon_reviews_collection, walmart_reviews_collection
     )
 
